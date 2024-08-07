@@ -1,0 +1,360 @@
+<section id="block_seven">
+    <script>
+        import Swiper from "swiper";
+        import { Navigation, Pagination } from "swiper/modules";
+        import "swiper/css";
+        import "swiper/css/navigation";
+        import "swiper/css/pagination";
+        var swiper = new Swiper(".swiper", {
+            modules: [Navigation, Pagination],
+            slidesPerView: 1.25,
+            spaceBetween: 30,
+            // pagination: {
+            //     el: ".swiper-pagination",
+            //     clickable: true,
+            // },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            scrollbar: {
+                el: ".swiper-scrollbar",
+            },
+        });
+    </script>
+    <div class="wrapper_slider visible">
+        <div class="wrap_swiper">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="block">Крупные компании и холдинги</div>
+                        <div class="title">Название проекта</div>
+                        <div class="description">
+                            Просмотр, интерактив, статистика, авторизация
+                            зрителей, закрытые трансляции, хранение записи,
+                            стабильность и безопасность
+                        </div>
+                        <button> Заказать демонстрацию</button>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="block">Среднего размера бизнес</div>
+                        <div class="title">Название проекта</div>
+                        <div class="description">
+                            Просмотр, интерактив, статистика, авторизация
+                            зрителей, закрытые трансляции, хранение записи,
+                            стабильность и безопасность
+                        </div>
+                        <button> Заказать демонстрацию</button>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="block">Малый и микро- бизнес</div>
+                        <div class="title">Название проекта</div>
+                        <div class="description">
+                            Просмотр, интерактив, статистика, авторизация
+                            зрителей, закрытые трансляции, хранение записи,
+                            стабильность и безопасность
+                        </div>
+                        <button> Заказать демонстрацию</button>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="block">Государственные учреждения</div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="block">Высшие учебные заведения</div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="block">Фрилансеры и преподаватели</div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap_mini_slider visible">
+        <div class="heading">Примеры <br /> реализованных <br /> проектов</div>
+        <div class="slider_for_adaptive visible" id="slider_for_adaptive_broadcasts">
+            <div class="for_scroll">
+                <div class="swiper-slide_adaptive">
+                    <div class="block"></div>
+                    <div class="title">Название проекта</div>
+                    <div class="description">
+                        Просмотр, интерактив, статистика, авторизация зрителей,
+                        закрытые трансляции, хранение записи, стабильность и
+                        безопасность
+                    </div>
+                    <button> Заказать демонстрацию</button>
+                </div>
+                <div class="swiper-slide_adaptive">
+                    <div class="block"></div>
+                    <div class="title">Название проекта</div>
+                    <div class="description">
+                        Просмотр, интерактив, статистика, авторизация зрителей,
+                        закрытые трансляции, хранение записи, стабильность и
+                        безопасность
+                    </div>
+                    <button> Заказать демонстрацию</button>
+                </div>
+                <div class="swiper-slide_adaptive">
+                    <div class="block"></div>
+                    <div class="title">Название проекта</div>
+                    <div class="description">
+                        Просмотр, интерактив, статистика, авторизация зрителей,
+                        закрытые трансляции, хранение записи, стабильность и
+                        безопасность
+                    </div>
+                    <button> Заказать демонстрацию</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style lang="scss">
+    $colors: #001d31, #009373, #623cea, #cc2936, #9e225a, #d36135;
+    swiper-container::part(bullet-active) {
+        background-color: red;
+    }
+    .heading {
+        font-size: 36px;
+        font-family: "Montserrat", sans-serif;
+        text-align: left;
+        margin-bottom: 65px;
+        margin-top: 40px;
+    }
+    .wrap_mini_slider {
+        display: none;
+    }
+    .slider_for_adaptive.visible {
+        display: none;
+    }
+    .slider_for_adaptive {
+        width: 100%;
+        overflow: scroll;
+        .for_scroll {
+            display: flex;
+            flex-direction: row;
+            width: 600px;
+            .swiper-slide_adaptive {
+                text-align: left;
+                font-size: 18px;
+                background: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                margin-right: 20px;
+            }
+            .block {
+                height: 44vw;
+                width: 73vw;
+                background: url(/images/Content11.png) no-repeat bottom 0 left 0
+                    #001d31;
+                background-size: contain;
+                border-radius: 24px;
+            }
+            .title {
+                font-family: "Montserrat", sans-serif;
+                font-size: 28px;
+                color: #1c2129;
+                margin-top: 32px;
+                margin-bottom: 16px;
+            }
+            .description {
+                color: #53627a;
+                font-size: 18px;
+            }
+            button {
+                width: 275px;
+                height: 56px;
+                background: url(/images/Arrow.png) no-repeat top 49% right 26px
+                    #009373;
+                background-size: 15px;
+                color: #fff;
+                border-radius: 16px;
+                text-align: left;
+                padding-left: 20px;
+                margin-top: 24px;
+                &:hover {
+                    background: url(/images/Arrow.png) no-repeat top 49% right
+                        26px #00765c;
+                    background-size: 15px;
+                }
+            }
+        }
+    }
+    :root {
+        --swiper-theme-color: #fff;
+    }
+    #block_seven {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+    .wrapper_slider {
+        max-width: 1080px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .wrap_swiper {
+            padding-top: 120px;
+            overflow: hidden;
+            position: relative;
+            .swiper-slide {
+                text-align: left;
+                font-size: 18px;
+                background: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+            .title {
+                font-family: "Montserrat", sans-serif;
+                font-size: 28px;
+                color: #1c2129;
+                margin-top: 32px;
+                margin-bottom: 16px;
+            }
+            .description {
+                color: #53627a;
+                font-size: 18px;
+            }
+            button {
+                width: 275px;
+                height: 56px;
+                background: url(/images/Arrow.png) no-repeat top 49% right 26px
+                    #009373;
+                background-size: 15px;
+                color: #fff;
+                border-radius: 16px;
+                text-align: left;
+                padding-left: 20px;
+                margin-top: 24px;
+                &:hover {
+                    background: url(/images/Arrow.png) no-repeat top 49% right
+                        26px #00765c;
+                    background-size: 15px;
+                }
+            }
+            &::after {
+                content: "Примеры реализованных проектов";
+                font-size: 36px;
+                font-family: "Montserrat", sans-serif;
+                text-align: left;
+                position: absolute;
+                height: 50px;
+                width: 100%;
+                top: 12px;
+                right: 0;
+            }
+            .swiper {
+                overflow: visible;
+                .swiper-button-prev {
+                    top: -86px;
+                    right: 73px;
+                    left: auto;
+                    border: 2px solid #d0daeb;
+                    width: 64px;
+                    height: 56px;
+                    border-radius: 12px;
+                    &::after {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        background: url(/images/onlineBroadcasts/arrow_grey.png)
+                            no-repeat center;
+                        background-size: 24px;
+                        transform: rotateY(160deg);
+                    }
+                }
+                .swiper-button-next {
+                    top: -86px;
+                    right: 0;
+                    left: auto;
+                    border: 2px solid #d0daeb;
+                    width: 64px;
+                    height: 56px;
+                    border-radius: 12px;
+                    &::after {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        background: url(/images/onlineBroadcasts/arrow_grey.png)
+                            no-repeat center;
+                        background-size: 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        @for $i from 1 through length($colors) {
+            &:nth-child(#{$i}) {
+                > .block {
+                    background: url(/images/Content#{$i}#{$i}.png)
+                        no-repeat
+                        bottom
+                        0
+                        left
+                        0
+                        nth($colors, $i);
+                    background-size: contain;
+                }
+            }
+        }
+        > .block {
+            width: 100%;
+            height: 330px;
+            border-radius: 24px;
+            color: #fff;
+            text-align: left;
+            padding: 24px;
+        }
+    }
+    @media (max-width: 1100px) {
+        .wrap_mini_slider {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .slider_for_adaptive {
+            &.visible {
+                display: block;
+            }
+            .for_scroll {
+
+                .title {
+                    font-size: 20px;
+                }
+            }
+        }
+        .wrapper_slider.visible {
+            display: none;
+        }
+        .heading {
+            font-size: 24px;
+        }
+    }
+</style>

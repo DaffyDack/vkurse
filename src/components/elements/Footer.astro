@@ -1,0 +1,396 @@
+---
+import FormForMain from "./FormForMain.astro";
+import FormForOnline from "./FormForOnline.astro";
+import FormForPartners from "./FormForPartners.astro";
+import BlockFourteenMain from "../sections/mainPain/BlockFourteen.astro";
+import BlockFourteenonlineBroadcasts from "../sections/onlineBroadcasts/BlockFourteen.astro";
+import BlockFourteenforPartners from "../sections/forPartners/BlockFourteen.astro";
+import BlockFourteenforLargeCorporateClients from "../sections/forLargeCorporateClients/BlockFourteen.astro";
+import BlockFourteencorporateCloud from "../sections/corporateCloud/BlockFourteen.astro";
+import FormForCorporateCloud from "./FormForCorporateCloud.astro";
+import FormForLargeClient from "./FormForLargeClient.astro";
+import FormForTariffs from "./FormForTariffs.astro";
+const pathname = new URL(Astro.request.url).pathname;
+let path = pathname.replace(/\//g, "");
+---
+
+<div>
+    {
+        path == "" ? (
+            <BlockFourteenMain />
+        ) : path.indexOf("onlineBroadcasts") !== -1 ? (
+            <BlockFourteenonlineBroadcasts />
+        ) : path.indexOf("forPartners") !== -1 ? (
+            <BlockFourteenforPartners />
+        ) : path.indexOf("forLargeCorporateClients") !== -1 ? (
+            <BlockFourteenforLargeCorporateClients />
+        ) : path.indexOf("corporateCloud") !== -1 ? (
+            <BlockFourteencorporateCloud />
+        ) : (
+            <BlockFourteenMain />
+        )
+    }
+
+    <footer class="bg-[#001D31] relative rounded-t-3xl">
+        <script>
+            import { Ripple, Input, initTE } from "tw-elements";
+
+            initTE({ Ripple, Input });
+        </script>
+        <div
+            class="ower_wrapper mx-auto p-[20px] pb-[0] pt-[32px] rounded-t-[24px]"
+        >
+            <ul class="wrapper">
+                <li class="left_block">
+                    {
+                        path == "" ? (
+                            <FormForMain />
+                        ) : path.indexOf("onlineBroadcasts") !== -1 ? (
+                            <FormForOnline />
+                        ) : path.indexOf("forPartners") !== -1 ? (
+                            <FormForPartners />
+                        ) : path.indexOf("forLargeCorporateClients") !== -1 ? (
+                            <FormForLargeClient />
+                        ) : path.indexOf("corporateCloud") !== -1 ? (
+                            <FormForCorporateCloud />
+                        ) : path.indexOf("tariffs") !== -1 ? (
+                            <FormForTariffs />
+                        ) : (
+                            <div style="color: #fff;">форма не определена</div>
+                        )
+                    }
+                </li>
+                <li class="right_block">
+                    <div class="list">
+                        <ul>
+                            <li>
+                                <a href="https://b24.vkurse.ru/~bp89T"
+                                    >Руководство пользователя</a
+                                >
+                            </li>
+                            <li>
+                                <a href="https://b24.vkurse.ru/~H0myf"
+                                    >Функциональность сервиса</a
+                                >
+                            </li>
+                            <li>
+                                <a href="https://b24.vkurse.ru/~98P5j"
+                                    >Технические требования</a
+                                >
+                            </li>
+                            <li>
+                                <a href="https://b24.vkurse.ru/~70y5k"
+                                    >Публичная оферта</a
+                                >
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="https://b24.vkurse.ru/~oMDOO"
+                                    >Политика обработки ПД</a
+                                >
+                            </li>
+                            <li>
+                                <a href="https://b24.vkurse.ru/~flhw2"
+                                    >Регламент техподдержки</a
+                                >
+                            </li>
+                            <li>
+                                <a href="https://b24.vkurse.ru/~H0myf"
+                                    >Антикоррупционная политика</a
+                                >
+                            </li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="platforms">
+                        <div class="title">
+                            ВКУРСЕ доступен на всех платформах
+                        </div>
+                        <ul class="browsers">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <ul class="platforms">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <ul class="link">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <div class="footer_info">
+                <div class="logo"></div>
+                <div class="copyright">® 2021-2023. Все права защищены</div>
+                <div class="politic"></div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<style lang="scss">
+    $color_1: #92a5c4;
+    $font-family_1: "Montserrat", sans-serif;
+    .ower_wrapper {
+        max-width: 1120px;
+        .wrapper {
+        }
+    }
+    .title {
+        font-size: 24px;
+        font-family: $font-family_1;
+    }
+    ul.wrapper {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 54px;
+        > li {
+            max-width: 512px;
+        }
+    }
+    .list {
+        display: flex;
+        justify-content: space-between;
+        color: $color_1;
+        > ul {
+            display: flex;
+            flex-direction: column;
+            > li {
+                padding-bottom: 24px;
+                font-weight: 400;
+                font-size: 14px;
+            }
+        }
+    }
+    .platforms {
+        > .title {
+            padding-bottom: 18px;
+            color: #92a5c4;
+            font-size: 16px;
+            font-family: sans-serif;
+        }
+        > ul.browsers {
+            display: inline-flex;
+            flex-wrap: wrap;
+            > li {
+                color: $color_1;
+                width: 20px;
+                height: 20px;
+                margin: 0 20px 20px 0;
+                @for $i from 1 through 12 {
+                    &:nth-child(#{$i}) {
+                        background: url(/images/Brouser#{$i}.png)
+                            no-repeat
+                            center;
+                        background-size: contain;
+                    }
+                }
+            }
+        }
+        > ul.platforms {
+            display: inline-flex;
+            flex-wrap: wrap;
+            > li {
+                color: $color_1;
+                width: 125px;
+                height: 40px;
+                margin: 0 3px 20px 0;
+                @for $i from 1 through 4 {
+                    &:nth-child(#{$i}) {
+                        background: url(/images/platform#{$i}.png)
+                            no-repeat
+                            center;
+                        background-size: contain;
+                    }
+                }
+            }
+        }
+        > ul.link {
+            display: inline-flex;
+            flex-wrap: wrap;
+            > li {
+                color: $color_1;
+                width: 32px;
+                height: 40px;
+                margin: 0 20px 20px 0;
+                @for $i from 1 through 3 {
+                    &:nth-child(#{$i}) {
+                        background: url(/images/link#{$i}.png) no-repeat center;
+                        background-size: contain;
+                    }
+                }
+            }
+        }
+    }
+    .footer_info {
+        padding: 20px 0;
+        display: flex;
+        color: $color_1;
+        font-weight: 400;
+        > .logo {
+            width: 96px;
+            height: 24px;
+            background: url(/images/Logo_grey.png) no-repeat;
+            background-size: contain;
+            margin-right: 20px;
+        }
+        > .politic {
+            display: flex;
+            margin-left: 125px;
+            > div {
+                margin-left: 12px;
+            }
+        }
+    }
+    @media (max-width: 1030px) {
+        .ower_wrapper {
+            ul.wrapper {
+                flex-direction: column;
+                li {
+                    .list {
+                        ul {
+                            flex: 1;
+                            margin-bottom: 20px;
+                            margin-top: 20px;
+                        }
+                    }
+                    .platforms {
+                        > .title {
+                            padding-left: 18px;
+                            padding-bottom: 18px;
+                        }
+                        > ul.browsers {
+                            display: flex;
+                            flex-wrap: nowrap;
+                        }
+                        > ul.platforms {
+                            display: flex;
+                            flex-wrap: nowrap;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 800px) {
+        .footer_info {
+            flex-direction: column;
+            > div {
+                margin-bottom: 10px;
+            }
+            .politic {
+                margin: 0;
+                flex-direction: column;
+                div {
+                    margin: 0 0 10px 0;
+                }
+            }
+        }
+    }
+    @media (max-width: 570px) {
+        .ower_wrapper {
+            ul.wrapper {
+                li {
+                    .list {
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+    }
+    @media (min-width: 1900px) {
+        footer {
+            min-height: 647px;
+            background: url(/images/footerBG.png) no-repeat center rgb(0 29 49 / var(--tw-bg-opacity));
+        }
+        .footer_info {
+            .logo {
+                margin-right: 40px;
+            }
+            .copyright {
+                letter-spacing: 0.3px;
+            }
+        }
+        .ower_wrapper {
+            max-width: 1416px;
+            padding: 0px 0px;
+            ul {
+                column-gap: 0;
+                li {
+                    &.left_block {
+                        max-width: inherit;
+                        flex-basis: 704px;
+                    }
+                    &.right_block {
+                        max-width: inherit;
+                        flex-basis: 704px;
+                        padding: 93px 0 0 114px;
+                        .list {
+                            margin-bottom: 40px;
+                            display: flex;
+                            justify-content: flex-start;
+                            ul {
+                                li {
+                                    padding-bottom: 27px;
+                                    letter-spacing: 1.2px;
+                                }
+                                &:first-child {
+                                    margin-right: 66px;
+                                }
+                            }
+                        }
+                        .platforms {
+                            .title {
+                                padding-bottom: 18px;
+                                color: #92a5c4;
+                                font-size: 14px;
+                                font-family: sans-serif;
+                                letter-spacing: 0.7px;
+                            }
+                            > ul {
+                                &.browsers {
+                                    > li {
+                                        margin: 0 24px 28px 0;
+                                    }
+                                }
+                                &.platforms {
+                                    padding-top: 4px;
+                                    li {
+                                        margin-right: 10px;
+                                        width: 133px;
+                                        height: 39px;
+                                        &:nth-child(3) {
+                                            width: 146px;
+                                            margin-right: 15px;
+                                        }
+                                    }
+                                }
+                                &.link {
+                                    li {
+                                        margin: 8px 15px 20px 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+</style>

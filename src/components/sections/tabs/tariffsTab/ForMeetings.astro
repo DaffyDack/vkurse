@@ -1,0 +1,141 @@
+---
+import Table from "./Table.astro";
+const { tariff, id } = Astro.props;
+---
+
+<div class="button_wrapper">
+  <div class="wrap_btn">
+    <div class="inner_button">
+      {
+        tariff.map((item) => {
+          return (
+            <>
+              <input
+                id={`${item.name}-btn-${item.line_id}`}
+                name={`${item.name}`}
+                type="radio"
+                value=""
+              />
+              <label for={`${item.name}-btn-${item.line_id}`}>
+                {item.line}
+              </label>
+            </>
+          );
+        })
+      }
+      {
+        tariff.map((item) => {
+          return (
+          <div class="wrapper_text">{item.description}</div>
+            <div
+              class={`${item.name}-content`}
+              id={`${item.name}-btn-${item.line_id}`}
+            >
+              <Table options={item.options} thead={item.thead} />
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</div>
+
+<script></script>
+<style lang="scss">
+  .inner_button {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .inner_button > input[type="radio"] {
+    display: none;
+  }
+  // .inner-content
+  div[class$="-content"] {
+    display: none;
+    width: 100%;
+    margin-top: 0rem;
+  }
+
+  @for $i from 1 through 10 {
+    input[id$="btn-#{$i}"]:checked ~ div[id$="btn-#{$i}"] {
+      display: block;
+    }
+  }
+
+  .inner_button > label {
+    display: block;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition:
+      color 0.15s ease-in-out,
+      background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out;
+    text-decoration: none;
+    color: #0d6efd;
+    border: 0;
+    border-radius: 0.375rem;
+    background: 0 0;
+  }
+  .inner_button > input[type="radio"] + label {
+    color: #1c2129;
+    border: 2px solid transparent;
+    background: #fff;
+  }
+  .inner_button > input[type="radio"]:checked + label {
+    cursor: default;
+    color: #009373;
+    border: 2px solid #009373;
+    background: #fff;
+  }
+
+  .button_wrapper {
+    text-align: center;
+  }
+  .wrap_btn {
+    display: flex;
+    justify-content: center;
+    .inner_button {
+      width: 100%;
+      border-radius: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      label {
+        height: 44px;
+        width: 221px;
+        border: 2px solid #009373;
+        border-radius: 10px;
+        color: #009373;
+      }
+    }
+  }
+  .wrapper_text {
+    font-size: 12px;
+    text-align: center;
+    background: #fff;
+    border-radius: 16px 16px 0 0;
+    padding: 16px 24px;
+    color: #1c2129;
+    margin-top: 0px;
+  }
+  .wrapper_text span {
+    color: #0093f5;
+  }
+
+  @media (min-width: 1900px) {
+    .wrap_btn {
+      padding-top: 16px;
+      .inner_button {
+        label {
+          height: 55px;
+          width: 213px;
+          display: flex;
+          align-content: center;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin-bottom:14px;
+        }
+      }
+    }
+  }
+</style>

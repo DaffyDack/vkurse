@@ -1,0 +1,120 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_seven">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        <div class="wrapper">
+            <div class="wrap_mini_slider">
+                <div class="heading">
+                    Примеры реализованных проектов
+                </div>
+                <div class="slider_for_adaptive" id="slider_for_adaptive_corporate_client">
+                    <div class="for_scroll">
+                        <div class="swiper-slide_adaptive">
+                            <div class="block"></div>
+                            <div class="wrap_block">
+                                <div class="title">Industrial Case</div>
+                                <div class="description">
+                                    Просмотр, интерактив, статистика, авторизация зрителей, закрытые трансляции, хранение записи, стабильность и безопасность
+                                </div>
+                                <button>Скачать кейс</button>
+                            </div>
+                        </div>
+                        <div class="swiper-slide_adaptive">
+                            <div class="block"></div>
+                            <div class="wrap_block">
+                                <div class="title">Hybrid Cloud Case</div>
+                                <div class="description">
+                                    Просмотр, интерактив, статистика, авторизация зрителей, закрытые трансляции, хранение записи, стабильность и безопасность
+                                </div>
+                                <button>Скачать кейс</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
+
+<style lang="scss">
+    .wrapper {
+        width: 100%;
+    }
+    .slider_for_adaptive {
+        width: 100%;
+        overflow-y: overlay;
+        .for_scroll {
+            display: flex;
+            flex-direction: row;
+            .swiper-slide_adaptive {
+                text-align: left;
+                font-size: 18px;
+                background: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                border-radius: 24px;
+                overflow: hidden;
+                border: 2px solid #D0DAEB;
+                &:first-child {
+                    margin-right: 20px;
+                    .block {
+                        background: url(/images/forLargeCorporateClients/Frame1.png) no-repeat center;
+                        background-size: cover;
+                    }
+                }
+                &:last-child {
+                    .block {
+                        background: url(/images/forLargeCorporateClients/Frame2.png) no-repeat center;
+                        background-size: cover;
+                    }
+                }
+            }
+            .block {
+                height: 168px;
+                width: 100%;
+                background: url(/images/Content11.png) no-repeat bottom 0 left 0
+                    #001d31;
+                background-size: contain;
+            }
+            .wrap_block {
+                padding: 32px;
+            }
+            .title {
+                font-family: "Montserrat", sans-serif;
+                font-size: 20px;
+                color: #1c2129;
+                margin-bottom: 16px;
+            }
+            .description {
+                color: #53627a;
+                font-size: 18px;
+            }
+            button {
+                width: 200px;
+                height: 56px;
+                background: url(/images/Arrow.png) no-repeat top 49% right 26px
+                    #009373;
+                background-size: 15px;
+                color: #fff;
+                border-radius: 16px;
+                text-align: left;
+                padding-left: 20px;
+                margin-top: 24px;
+                &:hover {
+                    background: url(/images/Arrow.png) no-repeat top 49% right
+                        26px #00765c;
+                    background-size: 15px;
+                }
+            }
+        }
+    }
+    @media (max-width: 700px) {
+        .for_scroll {
+            width: 1000px;
+        }
+    }
+</style>

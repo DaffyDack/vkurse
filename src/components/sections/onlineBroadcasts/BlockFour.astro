@@ -1,0 +1,114 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_four">
+    <Container>
+        <div class="wrapper_deliveries">
+            <ul>
+                <li>
+                    <div class="title">Телевизионное <br /> качество</div>
+                    <div class="descruption">
+                        Профессиональный звук, возможность выбрать качество
+                        видео
+                    </div>
+                </li>
+                <li>
+                    <div class="title">Возможности <br /> коммуникации</div>
+                    <div class="descruption">
+                        Демонстрация презентаций, чат, опросы, голосования,
+                        трансляция изображения с экране в зале — захват от
+                        компьютера спикера для демонстрации онлайн зрителям
+                    </div>
+                </li>
+                <li>
+                    <div class="title">Дополнительные <br /> возможности</div>
+                    <div class="descruption">
+                        Синхронный перевод, монтаж видео, статистика
+                        мероприятия, рестрим в социальные сети, графическое
+                        оформление
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </Container>
+</section>
+<style lang="scss">
+    $color_1: #fff;
+    $color_2: #53627a;
+    $font-family_1: "Montserrat", sans-serif;
+    $colors: #623cea, #009373, #001d31;
+
+    .heading {
+        font-size: 36px;
+        font-family: $font-family_1;
+        text-align: left;
+    }
+    .wrapper_deliveries {
+        width: 100%;
+        margin-bottom: 104px;
+    }
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: stretch;
+        text-align: center;
+        > li {
+            width: 328px;
+            height: 432px;
+            border-radius: 24px;
+            margin-top: 24px;
+            text-align: left;
+            padding: 24px 20px;
+            color: $color_1;
+            position: relative;
+            button {
+                width: 136px;
+                height: 44px;
+                background: url(/images/arrow_right.png)
+                    no-repeat top 50% right 12px #fff;
+                background-size: 16px;
+                color: $color_2;
+                border-radius: 12px;
+                padding-left: 16px;
+                text-align: left;
+                font-size: 16px;
+                position: absolute;
+                bottom: 24px;
+                left: 24px;
+            }
+            @for $i from 1 through length($colors) {
+                &:nth-child(#{$i}) {
+                    background: url(/images/onlineBroadcasts/deliveriesContent#{$i}.png)
+                        no-repeat
+                        bottom
+                        0
+                        left
+                        0
+                        nth($colors, $i);
+                    background-size: contain;
+                }
+            }
+            .title {
+                font-size: 22px;
+                font-family: $font-family_1;
+                margin-bottom: 16px;
+                line-height: 28px;
+            }
+            .descruption {
+                font-size: 16px;
+            }
+        }
+    }
+    @media (max-width: 1033px) {
+        .wrapper_deliveries {
+            ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+</style>

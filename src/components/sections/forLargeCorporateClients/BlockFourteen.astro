@@ -1,0 +1,193 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<div>
+    <script>
+        import { Collapse, initTE } from "tw-elements";
+
+        initTE({ Collapse });
+    </script>
+    <section id="block_fourteen">
+        <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+            <div class="wrapper_questions_and_answers">
+                <div class="heading">Вопросы и ответы</div>
+                <div id="accordionExample">
+                    <div
+                        class="rounded-t-[24px] border-neutral-200 dark:border-neutral-600"
+                    >
+                        <h2 class="mb-0" id="headingOne">
+                            <button
+                                class="bg-[#DF78A6] group relative flex w-full items-center rounded-t-[24px] border-0 p-[24px] text-left text-base text-neutral-800 transition"
+                                type="button"
+                                data-te-collapse-init
+                                data-te-target="#collapseOne"
+                                aria-expanded="true"
+                                aria-controls="collapseOne"
+                            >
+                            Что нужно для проведения онлайн-мероприятия?
+                            </button>
+                        </h2>
+                        <div
+                            id="collapseOne"
+                            class="!visible bg-[#DF78A6]"
+                            data-te-collapse-item
+                            data-te-collapse-show
+                            aria-labelledby="headingOne"
+                            data-te-parent="#accordionExample"
+                        >
+                            <div class="px-5 py-4 content">
+                                <ol type="1">
+                                    <li>
+                                        Зайти в свой Аккаунт на
+                                        https://saas.vkurse.ru, используя
+                                        реквизиты для входа.
+                                    </li>
+                                    <li>
+                                        Запланировать онлайн-мероприятие или
+                                        создать виртуальная переговорную
+                                        комнату.
+                                    </li>
+                                    <li>
+                                        Выбрать тип онлайн-мероприятия: вебинар,
+                                        совещание, конференция или лекция.
+                                    </li>
+                                    <li>
+                                        Пригласить докладчиков/участников по
+                                        email или разместить ссылку на
+                                        мероприятие в открытых источниках
+                                        (зависит от ваших целей).
+                                    </li>
+                                    <li>Провести онлайн-мероприятие.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-t-0 rounded-t-[24px] border-neutral-200">
+                        <h2 class="mb-0 bg-[#DF78A6]" id="headingTwo">
+                            <button
+                                class="group relative flex w-full items-center rounded-t-[24px] border-0 bg-[#A18AF2] p-[24px] text-left text-base text-neutral-800 transition"
+                                type="button"
+                                data-te-collapse-init
+                                data-te-collapse-collapsed
+                                data-te-target="#collapseTwo"
+                                aria-expanded="false"
+                                aria-controls="collapseTwo"
+                            >
+                            Как протестировать ВКУРСЕ?
+                            </button>
+                        </h2>
+                        <div
+                            id="collapseTwo"
+                            class="!visible hidden bg-[#A18AF2]"
+                            data-te-collapse-item
+                            aria-labelledby="headingTwo"
+                            data-te-parent="#accordionExample"
+                        >
+                            <div class="px-5 py-4 content">
+                                <ol type="1">
+                                    <li>
+                                        Связаться с нами и менеджер предоставит тестовый период с полным функционалом.
+                                    </li>
+                                    <li>
+                                        Зарегистрироваться на сайте и получить на email реквизиты своего личного бесплатного аккаунта.
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="rounded-b-[0] border-t-0 border-neutral-200 bg-[#A18AF2] dark:border-neutral-600 dark:bg-neutral-800"
+                    >
+                        <h2 class="accordion-header mb-0" id="headingThree">
+                            <button
+                                class="group relative flex w-full items-center rounded-t-[24px] bg-[#99D4FB] border-0 p-[24px] text-left text-base text-neutral-800 transition"
+                                type="button"
+                                data-te-collapse-init
+                                data-te-collapse-collapsed
+                                data-te-target="#collapseThree"
+                                aria-expanded="false"
+                                aria-controls="collapseThree"
+                            >
+                                Как оплатить подписку?
+                            </button>
+                        </h2>
+                        <div
+                            id="collapseThree"
+                            class="!visible hidden bg-[#99D4FB] p-[24px]"
+                            data-te-collapse-item
+                            aria-labelledby="headingThree"
+                            data-te-parent="#accordionExample"
+                        >
+                            <div class="">
+                                <span>
+                                        Безналичная форма оплаты. Платежи принимаются от юридических лиц по выставленному счету.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-t-0 rounded-t-[24px] border-neutral-200">
+                        <h2 class="mb-0 bg-[#99D4FB]" id="headingFour">
+                            <button
+                                class="group relative flex w-full items-center rounded-t-[24px] border-0 bg-[#66BEAB] p-[24px] text-left text-base text-neutral-800 transition"
+                                type="button"
+                                data-te-collapse-init
+                                data-te-collapse-collapsed
+                                data-te-target="#collapseFour"
+                                aria-expanded="false"
+                                aria-controls="collapseFour"
+                            >
+                            Можно ли проводить Вебинары, Совещания (и другие типы мероприятий) на одном тарифе?
+                            </button>
+                        </h2>
+                        <div
+                            id="collapseFour"
+                            class="!visible hidden bg-[#66BEAB]"
+                            data-te-collapse-item
+                            aria-labelledby="headingFour"
+                            data-te-parent="#accordionExample"
+                        >
+                            <div class="px-5 py-4 content">
+                                <ol type="1">
+                                    <li>
+                                        На тарифах линейки CORP (Corporate) можно использовать любые готовые типы мероприятий: Вебинары, Совещания,
+                                    </li>
+                                    <li>
+                                        Конференции и Лекции, а также создавать свои личные шаблоны с настройками мероприятий.
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Container>
+    </section>
+</div>
+<style>
+    ol {
+        list-style: auto;
+        padding-left: 24px;
+        font-weight: 400;
+    }
+    span {
+        font-weight: 400;
+    }
+    .wrapper_questions_and_answers {
+        width: 100%;
+        padding: 0 16px;
+    }
+    .heading {
+        font-size: 36px;
+        font-family: "Montserrat", sans-serif;
+        text-align: left;
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+    button {
+        font-family: "Montserrat", sans-serif;
+    }
+    .content {
+        font-weight: 400;
+    }
+</style>

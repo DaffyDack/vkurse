@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BlockOne from "../components/sections/onlineBroadcasts/BlockOne.astro";
+import BlockTwo from "../components/sections/onlineBroadcasts/BlockTwo.astro";
+import BlockTree from "../components/sections/onlineBroadcasts/BlockTree.astro";
+import BlockFour from "../components/sections/onlineBroadcasts/BlockFour.astro";
+import BlockFive from "../components/sections/onlineBroadcasts/BlockFive.astro";
+import BlockSix from "../components/sections/onlineBroadcasts/BlockSix.astro";
+import BlockSeven from "../components/sections/onlineBroadcasts/BlockSeven.astro";
+---
+
+<Layout 
+title="ВКурсе | Онлайн-трансляции на платформе конференции"
+description="Российская платформа для проведения мероприятий от 50 до 10000 участников"
+>
+	<main>
+		<BlockOne />
+		<BlockTwo />
+		<BlockTree />
+		<BlockFour />
+		<BlockFive />
+		<BlockSix />
+		<!-- <BlockSeven /> -->
+	</main>
+</Layout>
+<style lang="scss">
+	main {
+		overflow: hidden;
+	}
+</style>

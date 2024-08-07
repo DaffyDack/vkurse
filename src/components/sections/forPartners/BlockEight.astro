@@ -1,0 +1,92 @@
+---
+import Container from "../../shared/Container.astro";
+import TabsName from "../tabs/TabsName.astro";
+import TabsContent from "../tabs/TabsContent.astro";
+import infoTabs from "../tabs/infoTabsForPartnerPage.js";
+---
+
+<section id="block_eight" class="mb-[65px]">
+  <script>
+    import { Tab, initTE } from "tw-elements";
+    initTE({ Tab });
+  </script>
+  <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+    <div class="wrapper_opportunities">
+      <div class="heading">Преимущества работы <br /> с «ВКУРСЕ»</div>
+      <div class="wrap_button_tab" id="wrap_button_tab_for_partners">
+        <div>
+          <ul class="mb-5" role="tablist" data-te-nav-ref>
+            {
+              infoTabs.tabsName.map((item, i) => {
+                return <TabsName {...item} index={i} width="w-[330px]" />;
+              })
+            }
+          </ul>
+        </div>
+      </div>
+      <div class="mb-6 wrap_content_tab">
+        {
+          infoTabs.tabsContent.map((item, i) => {
+            return <TabsContent {...item} index={i} />;
+          })
+        }
+      </div>
+    </div>
+  </Container>
+</section>
+<style lang="scss">
+  .wrapper_opportunities {
+    width: 100%;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      gap: 24px;
+      > li {
+        width: 265px;
+      }
+    }
+  }
+  .heading {
+    font-size: 36px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    margin-bottom: 65px;
+    margin-top: 40px;
+  }
+
+  @media (min-width: 1920px) {
+    .wrap_button_tab {
+      width: 100%;
+      //   display: flex;
+      ul {
+        display: grid !important;
+        grid-template-columns: repeat(3, 330px);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 24px 108px;
+        > li {
+          width: 265px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1122px) {
+    .wrapper_opportunities {
+      .wrap_button_tab {
+        width: 100%;
+        overflow-y: overlay;
+        > div {
+          width: 2000px;
+          ul {
+            display: flex;
+            flex-wrap: nowrap;
+          }
+        }
+      }
+      .wrap_content_tab {
+        overflow: hidden;
+      }
+    }
+  }
+</style>

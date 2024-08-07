@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/shared/Container.astro";
+import ProductCard from "../components/sections/tabs/tariffsTab/testTariffs/ProductCard";
+---
+
+<script>
+    import { Modal, Ripple, initTE } from "tw-elements";
+
+    initTE({ Modal, Ripple });
+</script>
+<Layout 
+title="ВКурсе | Регистрация"
+description="Российская платформа для проведения мероприятий от 50 до 10000 участников"
+>
+    <main>
+        <section id="registrationApplication">
+            <Container
+                className="flex flex-col midmd:flex-row gap-10 lg:gap-12"
+            >
+                <ProductCard client:load />
+            </Container>
+        </section>
+    </main>
+</Layout>
+<style lang="scss">
+    #registrationApplication {
+        background: #F3F6FA;
+    }
+</style>

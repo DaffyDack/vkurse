@@ -1,0 +1,24 @@
+---
+export interface Props {
+  className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<div class={`mx-auto wrapper`}>
+  <slot />
+</div>
+<style lang="scss">
+  .wrapper {
+    max-width: 1080px;
+    padding: 0 20px;
+  }
+
+  @media (min-width: 1900px) {
+    .wrapper {
+      max-width: 1416px;
+      padding: 0;
+    }
+  }
+</style>

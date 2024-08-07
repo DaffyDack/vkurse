@@ -1,0 +1,395 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_ten">
+	<Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+		<div class="wrapper_business">
+			<div class="heading">Для малого и среднего бизнеса</div>
+			<div class="wrapper_container" id="wrapper_c">
+				<div class="container_grid">
+					<div class="box-1">
+						<div class="title">Корпоративное <br /> облако</div>
+						<div class="pod_title">
+							«ВКУРСЕ» предоставляет различные <br
+								class="br-desktop"
+							/>
+							 возможности для организации встреч, включая
+							одноразовые встречи, регулярные собрания и вебинары
+						</div>
+						<ul class="wrapper_discription">
+							<li>Meetings — для встреч и совещаний</li>
+							<li>Webinars — для обучения</li>
+							<li>CORP — для корпоративных коммуникаций</li>
+							<li>
+								One-Time webinar — для рекламы и продвижения
+							</li>
+						</ul>
+						<button
+							><a href="/corporateCloud"><div>Подробнее</div></a
+							></button
+						>
+					</div>
+					<div class="box-2">
+						<div class="title">
+							Гибкие линейки <br /> тарифов: от 50 до <br /> 10
+							000 онлайн- <br /> участников
+						</div>
+					</div>
+					<div class="box-3">
+						<div class="title">Быстрый старт</div>
+						<ul>
+							<li>
+								Просто настроить и начать использовать платформу
+								без необходимости устанавливать программное
+								обеспечение
+							</li>
+							<li>Интуитивно понятный интерфейс</li>
+						</ul>
+					</div>
+					<div class="box-4">
+						<div class="title">Техническая поддержка</div>
+						<div class="discription">
+							«ВКУРСЕ» — предоставляет техническую поддержку
+							и обучение пользователям, что делает его более
+							доступным и удобным для новичков
+						</div>
+					</div>
+					<div class="box-5">
+						<div class="title">
+							Видео-коммуникации высокого качества
+						</div>
+						<div class="discription">
+							Технология WebRTC — обеспечивает высокое качество
+							передачи видео и аудио контента. Идеально для
+							деловых встреч, презентаций и общения с клиентами
+							или партнерами в реальном времени
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</Container>
+</section>
+<style lang="scss">
+	$color_1: #fff;
+	$color_2: #53627a;
+	$color_3: #d0daeb;
+	$font-family_1: sans-serif;
+	$font-family_2: "Montserrat", sans-serif;
+	$background-color_1: skyblue;
+	.br-desktop {
+		display: none;
+	}
+	.wrapper_container {
+		width: 100%;
+	}
+	#wrapper_c::-webkit-scrollbar {
+		display: none;
+	}
+	.wrapper_business {
+		font-family: $font-family_1;
+		font-size: 40px;
+		width: 100%;
+	}
+	.heading {
+		font-size: 36px;
+		font-family: $font-family_2;
+		text-align: center;
+		margin-bottom: 100px;
+		margin-top: 50px;
+	}
+	[class^="box-"] {
+		background-color: $background-color_1;
+		max-width: 504px;
+		display: grid;
+		place-items: center;
+		border-radius: 32px;
+		background: #dfccff;
+		padding: 55px 32px;
+		> .title {
+			font-size: 22px;
+			font-family: $font-family_2;
+		}
+		> .discription {
+			font-size: 16px;
+			font-weight: 400;
+		}
+		li {
+			font-weight: 400;
+		}
+	}
+	.container_grid {
+		display: grid;
+		gap: 24px;
+		height: 880px;
+		grid-template-areas: "A A A A  A A B B  B B B B" "A A A A  A A B B  B B B B" "A A A A  A A B B  B B B B" "A A A A  A A E E  E E E E" "A A A A  A A E E  E E E E" "A A A A  A A E E  E E E E" "C C C C  C C D D  D D D D" "C C C C  C C D D  D D D D";
+		justify-content: center;
+		margin-top: 50px;
+	}
+	.box-1 {
+		grid-area: A;
+		background: #623cea;
+		width: 504px;
+		position: relative;
+		padding: 50px 24px;
+		color: $color_1;
+		display: grid;
+		justify-items: start;
+		align-content: flex-start;
+		&::after {
+			content: "";
+			position: absolute;
+			top: -60px;
+			left: 50%;
+			transform: translateX(-50%);
+			height: 128px;
+			width: 190px;
+			background: url(/images/Icon1.png) no-repeat center;
+			background-size: cover;
+		}
+	}
+	.box-3 {
+		max-height: 264px;
+		background: url(/images/rocket.png) no-repeat left 45px top 50% #dfccff;
+		background-size: 93px;
+		grid-area: C;
+		> ul {
+			margin-left: 112px;
+			> li {
+				background: url(/images/arrow_grey.png) no-repeat left top;
+				background-size: 16px;
+			}
+		}
+		> .title {
+			margin-bottom: 14px;
+		}
+	}
+	.box-4 {
+		max-height: 264px;
+		grid-area: D;
+		min-height: 264px;
+	}
+	.box-2 {
+		grid-area: B;
+		width: 504px;
+	}
+	.box-5 {
+		grid-area: E;
+	}
+	.wrapper {
+		font-size: 14px;
+	}
+	button {
+		height: 44px;
+		text-align: center;
+		border-radius: 12px;
+		font-size: 14px;
+		color: $color_2;
+		width: 91%;
+		position: absolute;
+		bottom: 23px;
+		left: 50%;
+		transform: translateX(-50%);
+		background: #fff;
+		background-size: 16px;
+		div {
+			padding: 10px 20px;
+			display: inline;
+			background: url(/images/arrow_right.png) no-repeat right top 50%;
+			background-size: 16px;
+		}
+	}
+	.pod_title {
+		color: $color_3;
+		padding: 16px 0 24px 0;
+		font-size: 16px;
+		font-family: $font-family_2;
+		text-align: center;
+		+ {
+			.pod_title {
+				font-family: $font-family_2;
+				padding-top: 0;
+			}
+		}
+	}
+	.title {
+		font-size: 24px;
+		width: 100%;
+		text-align: center;
+	}
+	.discription {
+		text-align: center;
+		font-weight: 400;
+	}
+	ul {
+		> li {
+			&:nth-child(1) {
+				position: relative;
+			}
+			text-align: left;
+			font-size: 14px;
+			margin-bottom: 20px;
+			padding-left: 25px;
+			background: url(/images/mini_arrow.png) no-repeat left top;
+			background-size: 16px;
+		}
+	}
+
+	@media (max-width: 1070px) {
+		.wrapper_container {
+			overflow-y: auto;
+			.container_grid {
+				justify-content: normal;
+				height: 580px;
+				width: 1200px;
+				grid-template-areas:
+					"A A A B B B C C C D D D"
+					"A A A B B B C C C D D D"
+					"A A A B B B C C C D D D"
+					"A A A B B B C C C D D D"
+					"A A A E E E C C C D D D"
+					"A A A E E E C C C D D D"
+					"A A A E E E C C C D D D"
+					"A A A E E E C C C D D D";
+				.box-1 {
+					grid-area: A;
+					width: 300px;
+				}
+				.box-2 {
+					grid-area: B;
+					// width: auto;
+				}
+				.box-3 {
+					grid-area: E;
+					max-height: initial;
+				}
+				.box-4 {
+					grid-area: C;
+					max-height: initial;
+				}
+				.box-5 {
+					grid-area: D;
+				}
+			}
+		}
+	}
+	@media (min-width: 1900px) {
+		.br-desktop {
+			display: block;
+		}
+		#block_ten {
+			margin-top: 135px;
+			.heading {
+				font-size: 48px;
+				margin-bottom: 50px;
+			}
+			.wrapper_container {
+				overflow-y: auto;
+				padding-top: 100px;
+				.container_grid {
+					justify-content: normal;
+					height: 706px;
+					grid-template-columns: 598px 1fr 1fr;
+					grid-template-areas:
+						"A A A A A B B C C"
+						"A A A A A B B C C"
+						"A A A A A B B C C"
+						"A A A A A E E C C"
+						"A A A A A E E C C"
+						"A A A A A E E D D"
+						"A A A A A E E D D"
+						"A A A A A E E D D";
+					ul {
+						li {
+							font-weight: normal;
+						}
+					}
+					.box-1 {
+						grid-area: A;
+						max-width: inherit;
+						width: 100%;
+						padding: 59px 24px;
+						height: 705px;
+						&::after {
+							top: -114px;
+							height: 200px;
+							width: 378px;
+						}
+						.title {
+							font-size: 48px;
+							line-height: 66px;
+						}
+						.pod_title {
+							font-size: 22px;
+							padding: 10px 0 47px 0;
+						}
+						ul {
+							li {
+								font-size: 16px;
+								padding-left: 49px;
+								letter-spacing: 0.7px;
+								background: url(/images/mini_arrow.png)
+									no-repeat left 23px top;
+								background-size: 16px;
+							}
+						}
+						button {
+							width: 161px;
+							bottom: 47px;
+							a {
+								padding-right: 21px;
+							}
+							div {
+								padding: 10px 26px 10px 20px;
+								font-weight: normal;
+							}
+						}
+					}
+					.box-2 {
+						grid-area: B;
+						width: 336px;
+						height: 273px;
+					}
+					.box-3 {
+						grid-area: C;
+						width: 336px;
+						height: 409px;
+						max-height: inherit;
+						padding-top: 141px;
+						background: url(/images/rocket.png) no-repeat left 128px
+							top 32px #dfccff;
+						background-size: 98px;
+						ul {
+							margin: 0;
+							li {
+								font-size: 16px;
+								padding-left: 34px;
+								letter-spacing: 0.4px;
+								background-size: 24px;
+								margin-bottom: 24px;
+							}
+						}
+						.title {
+							margin-bottom: 25px;
+						}
+					}
+					.box-4 {
+						grid-area: D;
+						max-height: initial;
+						padding-top: 31px;
+						height: 272px;
+						.title {
+							margin-bottom: 25px;
+						}
+					}
+					.box-5 {
+						grid-area: E;
+						align-content: space-evenly;
+						height: 409px;
+					}
+				}
+			}
+		}
+	}
+</style>

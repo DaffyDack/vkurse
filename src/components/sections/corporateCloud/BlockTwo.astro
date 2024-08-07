@@ -1,0 +1,95 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_two">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        <div class="wrapper" id="corporate_cloud">
+            <div id="container">
+                <div class="square top">До 10 000 онлайн участников</div>
+                <div class="square end">
+                    До 300 одновременных видео на экране
+                </div>
+                <div class="square center">Полное соблюдение Ф3-152</div>
+                <div class="square top">Быстрый старт за 1 день</div>
+                <div class="square end">
+                    Обучение работе с платформой всех сотрудников
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
+<style lang="scss">
+    $colors: #ffcccc, #ccfcff, #ffdecc, #dfccff, #ccfcff;
+    #block_two {
+        margin-top: 100px;
+    }
+    .wrapper {
+        width: 100%;
+        overflow-y: overlay;
+        #container {
+            display: flex;
+            justify-content: space-between;
+            height: 280px;
+            .square {
+                width: 187px;
+                border-radius: 16px;
+                padding: 24px;
+                @for $i from 1 through length($colors) {
+                    &:nth-child(#{$i}) {
+                        background: url(/images/corporateCloud/Icon#{$i}.png)
+                            no-repeat
+                            bottom
+                            10px
+                            right
+                            10px
+                            nth($colors, $i);
+                        background-size: 64px;
+                    }
+                }
+                &.top {
+                    align-self: flex-start;
+                }
+                &.center {
+                    align-self: center;
+                }
+                &.end {
+                    align-self: end;
+                }
+                &:nth-child(1),
+                &:nth-child(3) {
+                    height: 184px;
+                }
+                &:nth-child(2) {
+                    height: 204px;
+                }
+                &:nth-child(4) {
+                    height: 160px;
+                }
+                &:nth-child(5) {
+                    height: 232px;
+                }
+            }
+        }
+    }
+    @media (max-width: 1079px) {
+        .wrapper {
+            #container {
+                width: 1300px;
+                gap: 24px;
+                .square {
+                    width: 240px;
+                    &:nth-child(1),
+                    &:nth-child(3),
+                    &:nth-child(4) {
+                        height: 152px;
+                    }
+                    &:nth-child(2),
+                    &:nth-child(5) {
+                        height: 176px;
+                    }
+                }
+            }
+        }
+    }
+</style>

@@ -1,0 +1,26 @@
+---
+import Container from "../../shared/Container.astro";
+import Slider from "../slider/Sliders.astro";
+---
+
+<section id="block_four">
+    <Container
+        className="flex flex-col midmd:flex-row gap-10 lg:gap-12 mb-[104px]"
+    >
+        <div class="wrapper_tech">
+            <div class="heading">Наши партнёры</div>
+            <Slider />
+        </div>
+    </Container>
+</section>
+<style lang="scss">
+     $font-family_1: "Montserrat", sans-serif;
+     .wrapper_tech {
+        overflow: hidden;
+     }
+    .heading {
+        font-size: 36px;
+        font-family: $font-family_1;
+        text-align: left;
+    }
+</style>

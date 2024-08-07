@@ -1,0 +1,349 @@
+$offset: 187;
+$duration: 1.4s;
+
+.spinner {
+    animation: rotator $duration linear infinite;
+}
+
+@keyframes rotator {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(270deg);
+    }
+}
+
+.path {
+    stroke-dasharray: $offset;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    animation:
+        dash $duration ease-in-out infinite,
+        colors ($duration*4) ease-in-out infinite;
+}
+
+@keyframes colors {
+    0% {
+        stroke: #1B9A59;
+    }
+
+    25% {
+        stroke: #1B9A59;
+    }
+
+    50% {
+        stroke: #1B9A59;
+    }
+
+    75% {
+        stroke: #1B9A59;
+    }
+
+    100% {
+        stroke: #1B9A59;
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dashoffset: $offset;
+    }
+
+    50% {
+        stroke-dashoffset: calc($offset / 4);
+        transform: rotate(135deg);
+    }
+
+    100% {
+        stroke-dashoffset: $offset;
+        transform: rotate(450deg);
+    }
+}
+
+
+
+
+#loadingTE {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper_loader {
+    .loader {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: #00000069 !important;
+        border-radius: 0 !important;
+        display: flex !important;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+
+        div {
+            color: #fff;
+            font-size: 30px;
+        }
+    }
+}
+
+.formChangeMounth {
+    padding: 20px;
+}
+
+.buttonForPay {
+    width: 100%;
+    height: 56px;
+    border-radius: 16px;
+    background: #009373;
+    color: #fff;
+}
+
+
+.wrapper_form {
+    margin: 30px 0;
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+
+    >div {
+        min-height: 200px;
+        background: #fff;
+        width: 100%;
+        border-radius: 24px;
+        padding: 40px 20px;
+    }
+}
+
+.title_decoration {
+    font-size: 32px;
+    line-height: 36px;
+    margin-bottom: 40px;
+
+    &.img {
+        background: url(/images/Robot.png) no-repeat right top;
+        background-size: contain;
+    }
+}
+
+.module {
+    .parametr_subscription {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .module_button {
+        width: 100%;
+        border: 2px solid #E8EDF5;
+        border-radius: 16px;
+        text-align: left;
+        padding: 12px 20px;
+        background: url(/images/edit.png) no-repeat right 19px center;
+        background-size: 24px;
+        margin-bottom: 32px;
+
+        .title {
+            font-size: 14px;
+            font-weight: 400;
+            color: #53627A;
+        }
+
+        p {
+            color: #53627A;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        div {
+            font-weight: 600;
+        }
+    }
+}
+
+.aboutTheSubscription {
+    color: #53627A;
+    margin: 32px 0 20px;
+
+    ul {
+        li {
+            font-weight: 400;
+            font-size: 18px;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 48px;
+
+            div {
+                &.price {
+                    font-size: 32px;
+                    color: #1C2129;
+                }
+            }
+        }
+    }
+}
+
+.form_radio {
+    margin-bottom: 10px;
+}
+
+.form_radio input[type=radio] {
+    display: none;
+}
+
+.form_radio label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 0;
+    line-height: 18px;
+    user-select: none;
+    padding: 24px;
+    padding-left: 64px;
+    margin-right: 0;
+    line-height: 18px;
+    user-select: none;
+    width: 100%;
+    border: 2px solid #E8EDF5;
+    border-radius: 16px;
+    opacity: .5;
+}
+
+.form_radio label:before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    bottom: 1px;
+    background: url(/images/radio-1.png) 0 0 no-repeat;
+    background-size: contain;
+    transform: translateY(-50%);
+}
+
+.form_radio input[type=radio]:checked+label {
+    opacity: 1;
+}
+
+/* Checked */
+.form_radio input[type=radio]:checked+label:before {
+    background: url(/images/radio-2.png) 0 0 no-repeat;
+    background-size: contain;
+}
+
+
+
+.form_pay {
+    .title {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+}
+
+.form_radio_pay {
+    margin-bottom: 10px;
+}
+
+.form_radio_pay input[type=radio] {
+    display: none;
+}
+
+.form_radio_pay {
+    label {
+        &.card {
+            background: url(/images/cards.png) no-repeat right 20px center;
+            background-size: 200px;
+        }
+
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+        padding: 24px;
+        padding-left: 64px;
+        margin-right: 0;
+        line-height: 18px;
+        user-select: none;
+        width: 100%;
+        border: 2px solid #E8EDF5;
+        border-radius: 16px;
+        opacity: .5;
+    }
+}
+
+.form_radio_pay label:before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    bottom: 1px;
+    background: url(/images/radio-1.png) 0 0 no-repeat;
+    background-size: contain;
+    transform: translateY(-50%);
+}
+
+/* Checked */
+.form_radio_pay input[type=radio]:checked+label {
+    border: 2px solid #009373;
+    opacity: 1;
+}
+
+.form_radio_pay input[type=radio]:checked+label:before {
+    background: url(/images/radio-2.png) 0 0 no-repeat;
+    background-size: contain;
+}
+
+.left_form {
+    ul {
+        margin: 24px 0;
+
+        li {
+            color: #53627A;
+            margin-bottom: 24px;
+            font-weight: 400;
+            font-size: 14;
+        }
+    }
+
+    .base_fun {
+        margin-bottom: 24px;
+
+        +div {
+            color: #53627A;
+        }
+    }
+}
+
+.bottom_popup {
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+        width: 100%;
+        height: 56px;
+        border: 2px solid #D0DAEB;
+        border-radius: 12px;
+
+        +button {
+            background: #009373;
+            border: 2px solid transparent;
+            color: #fff;
+        }
+    }
+
+}

@@ -1,0 +1,277 @@
+---
+import ButtonForReg from "../shared/ButtonForReg.astro";
+import Container from "../shared/Container.astro";
+import Navitem from "../shared/Navitem.astro";
+const pathname = new URL(Astro.request.url).pathname;
+
+const navItems = [
+  {
+    href: "corporateCloud",
+    text: "Для малого бизнеса",
+  },
+  {
+    href: "forLargeCorporateClients",
+    text: "Для крупного бизнеса",
+  },
+  {
+    href: "onlineBroadcasts",
+    text: "Онлайн-Трансляции",
+  },
+  {
+    href: "forPartners",
+    text: "Для партнеров",
+  },
+  {
+    href: "https://help.vkurse.ru",
+    text: "База знаний",
+  },
+];
+let path = pathname.replace(/\//g, "");
+---
+
+<header class="header-main absolute inset-x-0 top-0 z-50 py-6 pl-5 pr-5">
+  <nav class="header w-full flex justify-between relative">
+    <div class="min-w-max inline-flex relative">
+      <a href="/" class="relative flex items-center gap-3">
+        <img src="/images/Logo.png" alt="Hero image" height="32" />
+      </a>
+    </div>
+
+    <div
+      data-nav-overlay
+      aria-hidden="true"
+      class="fixed hidden inset-0 3xl:!hidden bg-box-bg bg-opacity-50 backdrop-filter backdrop-blur-xl"
+    >
+    </div>
+    <div class="nav-desktop">
+      {
+        navItems.map((item) => (
+          <a
+            class={pathname.slice(1) === item.href ? "select" : ""}
+            href={item.href}
+          >
+            {item.text}
+          </a>
+        ))
+      }
+    </div>
+    <div class="special_nav">
+      <span class="mr-8">+7 495 648 66 73</span>
+      <ButtonForReg
+        text="Регистрация"
+        href="https://lk.vkurse.ru/signup"
+        className="flex justify-center w-full sm:w-max"
+        variant="primary"
+        marginRight="15px"
+        rightButton=""
+      />
+      <ButtonForReg
+        text="Войти"
+        href="https://lk.vkurse.ru/signin"
+        className="flex justify-center w-full sm:w-max"
+        variant="primary"
+        marginRight="0"
+        rightButton="rightButton"
+      />
+    </div>
+    <div
+      data-navbar
+      class="flex h-0 overflow-hidden 3xl:!h-auto 3xl:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 3xl:flex-row w-full 3xl:justify-between 3xl:items-center absolute 3xl:relative top-[-14px] 3xl:top-0 bg-body 3xl:bg-transparent border-x border-x-box-border 3xl:border-x-0"
+    >
+      <div class="mt-5 ml-2 inner_logo">
+        <a href="/" class="relative flex items-center gap-3">
+          <img src="/images/Logo.png" alt="Hero image" height="32" />
+        </a>
+        <span class="mr-10">+7 495 648 66 73</span>
+      </div>
+      <ul
+        class="for_activ border-t border-box-border 3xl:border-t-0 px-6 3xl:px-0 pt-6 3xl:pt-0 flex flex-col 3xl:flex-row gap-y-4 gap-x-3 text-lg text-heading-2 w-full 3xl:justify-center 3xl:items-center"
+      >
+        {
+          navItems.map((item) => {
+            return (
+              <li
+                class={
+                  item.href.replace(/\//g, "").indexOf(path) || path == ""
+                    ? ""
+                    : "active"
+                }
+              >
+                <Navitem {...item} />
+              </li>
+            );
+          })
+        }
+      </ul>
+
+      <div
+        class="button_class 3xl:min-w-max flex items-center sm:w-max w-full pb-6 3xl:pb-0 border-b border-box-bg 3xl:border-0 px-6 3xl:px-0"
+      >
+        <ButtonForReg
+          text="Регистрация"
+          href="https://lk.vkurse.ru/signup"
+          variant="primary"
+          marginRight="15px"
+          rightButton=""
+        />
+        <ButtonForReg
+          text="Войти"
+          href="https://lk.vkurse.ru/signin"
+          variant="primary"
+          marginRight="0"
+          rightButton="rightButton"
+        />
+      </div>
+    </div>
+    <div class="nav-tablet min-w-max flex items-center gap-x-3">
+      <button
+        data-toggle-nav
+        data-open-nav="false"
+        class="nav-tablet outline-none w-7 h-auto flex flex-col relative"
+      >
+        <span
+          id="line1"
+          class="w-6 h-0.5 rounded-full bg-heading-2 transition-all duration-300 ease-linear"
+        ></span>
+        <span
+          id="line2"
+          class="w-6 origin-center mt-1 h-0.5 rounded-ful bg-heading-2 transition-all duration-300 ease-linear"
+        ></span>
+        <span
+          id="line3"
+          class="w-6 mt-1 h-0.5 rounded-ful bg-heading-2 transition-all duration-300 ease-linear"
+        ></span>
+        <span class="sr-only">togglenav</span>
+      </button>
+    </div>
+  </nav>
+</header>
+<style lang="scss">
+  @media (min-width: 1500px) {
+    .header-main {
+      width: 100%;
+      margin: 0 auto;
+    }
+    .header {
+      max-width: 1920px;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+    }
+    .nav-tablet {
+      display: none;
+    }
+
+    .nav-desktop {
+      display: flex !important;
+      align-self: center;
+      margin: 0 auto;
+    }
+
+    .special_nav {
+      width: auto !important;
+    }
+  }
+  .header-main {
+    .header {
+      img {
+        width: 125px;
+      }
+    }
+  }
+  .main {
+    width: 100vw;
+    background: #000;
+  }
+
+  .nav-desktop {
+    display: none;
+    align-items: center;
+    gap: 42px;
+
+    a {
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px;
+      letter-spacing: 0.14px;
+      color: #53627a;
+      white-space: nowrap;
+      gap: 40px;
+      cursor: pointer;
+    }
+
+    .select {
+      color: #0093f5;
+    }
+  }
+
+  .special_nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 20px;
+    align-items: center;
+    font-weight: 600;
+  }
+  .inner_logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+  }
+  header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #fff;
+  }
+  button {
+    span {
+      background: #53627a;
+    }
+  }
+  ul.for_activ {
+    li.active {
+      color: #009373;
+    }
+  }
+  @media (max-width: 440px) {
+    .button_class {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 615px) {
+    .special_nav {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1500px) {
+    .header-main {
+      padding: 14px 22px;
+      .header {
+        img {
+          width: 124px;
+          margin-left: 20px;
+          margin-right: 25px;
+        }
+        .nav-desktop {
+          gap: 51px;
+        }
+        .special_nav {
+          span {
+            margin-right: 32px;
+            letter-spacing: 0.3px;
+          }
+          button {
+            padding: 12px 14px;
+          }
+        }
+      }
+    }
+  }
+</style>

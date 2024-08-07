@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/shared/Container.astro";
+---
+
+<Layout 
+title="ВКурсе | Страница не найдена"  
+description="Российская платформа для проведения мероприятий от 50 до 10000 участников">
+    <main>
+        <section id="block_404">
+            <Container
+                className="flex flex-col midmd:flex-row gap-10 lg:gap-12"
+            >
+                <div class="wrapper text-center py-8 heading">
+                    404
+                    <br>
+                    Страница не найдена
+                </div>
+                <div class="wrapper text-center">
+                <a href="/" class=" ">Вернуться на главную</a>
+                <br><br><br><br>
+                </div>
+            
+            </Container>
+        </section>
+    </main>
+</Layout>
+<style lang="scss">
+    #block_404 {
+        .wrapper {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>

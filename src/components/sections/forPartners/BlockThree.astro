@@ -1,0 +1,111 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_three">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        <div class="wrapper_deliveries">
+            <div class="heading">Кто наши партнеры?</div>
+            <ul>
+                <li>
+                    <div class="title">RESELLING PARTNER</div>
+                    <div class="descruption">
+                        Компания дистрибутор, дилер программного обеспечения
+                    </div>
+                </li>
+                <li>
+                    <div class="title">INTEGRATOR</div>
+                    <div class="descruption">
+                        Интегратор, поставляющий ПО «ВКУРСЕ» в составе
+                        комплексного проекта
+                    </div>
+                </li>
+                <li>
+                    <div class="title">VENDORS</div>
+                    <div class="descruption">
+                        Разработчик неконкурирующего продукта
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </Container>
+</section>
+<style lang="scss">
+    $color_1: #fff;
+    $color_2: #53627a;
+    $font-family_1: "Montserrat", sans-serif;
+    $colors: #623cea, #009373, #001d31;
+
+    .heading {
+        font-size: 36px;
+        font-family: $font-family_1;
+        text-align: left;
+    }
+    .wrapper_deliveries {
+        width: 100%;
+        margin-bottom: 104px;
+    }
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: stretch;
+        text-align: center;
+        > li {
+            width: 328px;
+            height: 432px;
+            border-radius: 24px;
+            margin-top: 24px;
+            text-align: left;
+            padding: 24px 20px;
+            color: $color_1;
+            position: relative;
+            button {
+                width: 136px;
+                height: 44px;
+                background: url(/images/arrow_right.png) no-repeat top 50% right
+                    12px #fff;
+                background-size: 16px;
+                color: $color_2;
+                border-radius: 12px;
+                padding-left: 16px;
+                text-align: left;
+                font-size: 16px;
+                position: absolute;
+                bottom: 24px;
+                left: 24px;
+            }
+            @for $i from 1 through length($colors) {
+                &:nth-child(#{$i}) {
+                    background: url(/images/forPartners/ContentPart#{$i}.png)
+                        no-repeat
+                        bottom
+                        0
+                        center
+                        nth($colors, $i);
+                    background-size: contain;
+                }
+            }
+            .title {
+                font-size: 20px;
+                font-family: $font-family_1;
+                margin-bottom: 16px;
+                line-height: 36px;
+            }
+        }
+    }
+    @media (max-width: 1100px) {
+        .wrapper_deliveries {
+            .heading {
+                // font-size: 24px;
+            }
+            ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    }
+</style>

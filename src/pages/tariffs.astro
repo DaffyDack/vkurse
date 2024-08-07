@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Tariffs from "src/components/sections/tabs/tariffsTab/Tariffs.astro";
+import TariffTab from "src/components/sections/tabs/tariffsTab/testTariffs/TariffsTest.astro";
+import axios from "axios";
+
+const response = await axios.get(import.meta.env.PUBLIC_API_URL+'v1/tariff',{
+	responseType: 'json'
+})
+let products = await response.data;
+---
+
+<Layout 
+title="ВКурсе | Тарифы"
+description="Российская платформа для проведения мероприятий от 50 до 10000 участников"
+>
+	<main>
+		<!-- <TariffTab /> -->
+		<Tariffs response={products.data} />
+	</main>
+</Layout>
+<style lang="scss">
+	main {
+		padding: 0 24px;
+	}
+</style>

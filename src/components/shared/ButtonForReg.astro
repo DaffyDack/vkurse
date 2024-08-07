@@ -1,0 +1,53 @@
+---
+export interface Props {
+    href: string;
+    text: string;
+    className?: string;
+    variant: "primary" | "secondary";
+    marginRight: string;
+    rightButton: string;
+}
+
+const { href, text, className, variant, marginRight, rightButton } =
+    Astro.props;
+---
+
+<a href={href} target="_blank">
+    <button
+        class=`font-semibold py-2 px-4 border-2 rounded ${rightButton} special_mr`
+    >
+        {text}
+    </button>
+</a>
+
+<style lang="scss" define:vars={{ marginRight }}>
+    .special_mr {
+        margin-right: var(--marginRight);
+    }
+    button {
+        border-color: #009373;
+        color: #009373;
+        border-radius: 12px;
+        line-height: 20px;
+        padding: 12px 16px;
+        font-size: 14px;
+        min-width: 124px;
+        &.rightButton {
+            background: #ebfffb;
+        }
+        &:hover {
+            border-color: #00765c;
+            color: #00765c;
+            border-radius: 12px;
+        }
+    }
+    @media (max-width: 440px) {
+        a {
+            width: 100%;
+        }
+        button {
+            margin-bottom: 10px;
+            width: 100%;
+        }
+    }
+</style>

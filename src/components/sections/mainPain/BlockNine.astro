@@ -1,0 +1,275 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_nine">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        <div class="wrapper_for_organization">
+            <div class="heading">Для крупных организаций</div>
+            <ul class="wrapper">
+                <li class="first">
+                    <div class="title">Частное облако</div>
+                    <div class="pod_title">
+                        Выделенная облачная инфраструктура
+                    </div>
+                    <ul class="wrapper_discription">
+                        <li>От 500 до 10 000+ пользователей</li>
+                        <li>Неисключительная срочная лицензия на 12 мес.</li>
+                        <li>Выделенная облачная инфраструктура</li>
+                        <li>Запускаем систему «под ключ»</li>
+                        <li>
+                            Подключение корпоративной почты, домена, SMS-шлюза,
+                            LDAP / AD FS / SSO, внутренней телефонии, аппаратных
+                            кодеков
+                        </li>
+                        <li>Интеграция с корпоративными системами</li>
+                        <li>Полный SLA (доступность сервиса 99,98%)</li>
+                    </ul>
+                    <button
+                        ><a href="/forLargeCorporateClients"
+                            ><div>Подробнее</div></a
+                        ></button
+                    >
+                </li>
+                <li class="first">
+                    <div class="title">Гибридное облако</div>
+                    <div class="pod_title">
+                        Микс «Частного облака» и «Серверного решения» <br
+                            class="br-desktop"
+                        /> ПО «ВКУРСЕ»
+                    </div>
+                    <div class="pod_title">
+                        Включает все, что и формат <br class="br-desktop" />
+                         «Частного облака»
+                    </div>
+                    <div class="fire_text">
+                        Почему этот формат интересен нашим Клиентам?
+                    </div>
+                    <ul class="wrapper_discription">
+                        <li>
+                            Все «чувствительные» данные находятся в контуре
+                            Клиента
+                        </li>
+                        <li>
+                            Нет необходимости в закупке дорогостоящих серверов
+                        </li>
+                        <li>
+                            Нет нужды в администрировании инфраструктуры и ее
+                            сопровождении
+                        </li>
+                        <button
+                            ><a href="/forLargeCorporateClients"
+                                ><div>Подробнее</div></a
+                            ></button
+                        >
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </Container>
+</section>
+<style lang="scss">
+    $color_1: #53627a;
+    $color_2: #d0daeb;
+    $color_3: #fff;
+    $font-family_1: "Montserrat", sans-serif;
+    .br-desktop {
+        display: none;
+    }
+    button {
+        height: 44px;
+        text-align: center;
+        border-radius: 12px;
+        font-size: 14px;
+        color: $color_1;
+        background: #fff;
+        width: 91%;
+        position: absolute;
+        bottom: 23px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        div {
+            padding: 10px 20px;
+            display: inline;
+            background: url(/images/arrow_right.png) no-repeat right top 50%;
+            background-size: 16px;
+        }
+    }
+    .fire_text {
+        text-align: left;
+        font-size: 18px;
+        padding-left: 32px;
+        background: url(/images/fire.png) no-repeat left 0 top 50%;
+        background-size: 16px;
+        margin-bottom: 20px;
+    }
+    .pod_title {
+        color: $color_2;
+        padding: 16px 0 24px 0;
+        + {
+            .pod_title {
+                padding-top: 0;
+            }
+        }
+    }
+    .wrapper {
+        font-family: $font-family_1;
+        text-align: center;
+        color: $color_3;
+    }
+    ul.wrapper {
+        > li {
+            .title {
+                font-size: 24px;
+            }
+            max-width: 504px;
+            min-height: 595px;
+            border-radius: 16px;
+            background: #000;
+            padding: 50px 24px;
+            position: relative;
+            li {
+                text-align: left;
+                font-size: 14px;
+                margin-bottom: 20px;
+                padding-left: 22px;
+                background: url(/images/mini_arrow.png) no-repeat left 0 top 50%;
+                background-size: 16px;
+            }
+            &:nth-child(1) {
+                background: #009373;
+                position: relative;
+                padding-bottom: 150px;
+                margin-bottom: 70px;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: -60px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    height: 100px;
+                    width: 162px;
+                    background: url(/images/privat_cloud_icon1.png) no-repeat
+                        center;
+                    background-size: cover;
+                }
+            }
+            &:nth-child(2) {
+                background: #001d31;
+                position: relative;
+                padding-bottom: 150px;
+                margin-bottom: 70px;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: -60px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    height: 100px;
+                    width: 162px;
+                    background: url(/images/gybrid_cloud_icon1.png) no-repeat
+                        center;
+                    background-size: cover;
+                }
+            }
+        }
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 60px;
+    }
+    .wrapper_for_organization {
+        width: 100%;
+    }
+    .heading {
+        font-size: 36px;
+        font-family: $font-family_1;
+        text-align: center;
+        padding-bottom: 65px;
+    }
+
+    @media (max-width: 1070px) {
+        .wrapper_for_organization {
+            > ul.wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+    @media (min-width: 1900px) {
+        .br-desktop {
+            display: block;
+        }
+        #block_nine {
+            .heading {
+                font-size: 48px;
+                margin-bottom: 137px;
+            }
+            ul {
+                gap: 20px;
+                li.first {
+                    max-width: none;
+                    flex: 1;
+                    border-radius: 36px;
+                    padding: 60px 24px 50px;
+                    min-height: 690px;
+                    &:last-child {
+                        .pod_title {
+                            padding: 9px 0 46px 0;
+                            + .pod_title {
+                                padding: 0px 0 49px 0;
+                            }
+                        }
+                        .fire_text {
+                            padding-left: 54px;
+                            background: url(/images/fire.png) no-repeat left
+                                28px top 50%;
+                            background-size: 16px;
+                            letter-spacing: -0.3px;
+                        }
+                    }
+                    .title {
+                        font-size: 48px;
+                    }
+                    .pod_title {
+                        font-size: 22px;
+                        padding: 9px 0 49px 0;
+                    }
+                    &:nth-child(1)::after,
+                    &:nth-child(2)::after {
+                        height: 200px;
+                        width: 295px;
+                        top: -125px;
+                    }
+                }
+                ul {
+                    li {
+                        padding-left: 48px;
+                        letter-spacing: 1px;
+                        padding-bottom: 3px;
+                        background: url(/images/mini_arrow.png) no-repeat left
+                            23px top 43%;
+                        background-size: 16px;
+                        font-weight: normal;
+                    }
+                }
+                button {
+                    width: 160px;
+                    bottom: 50px;
+                    a {
+                        width: 100%;
+                        display: block;
+                        letter-spacing: 0.1px;
+                        font-size: 13px;
+                        padding-right: 24px;
+                    }
+                    div {
+                        padding: 10px 23px 10px 20px;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+    }
+</style>

@@ -1,0 +1,347 @@
+---
+import { SEO } from "astro-seo";
+import Footer from "../components/elements/Footer.astro";
+import Navbar from "../components/elements/Navbar.astro";
+import CounterFooter from "../components/elements/CounterFooter.astro";
+
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title } = Astro.props;
+const { description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SEO
+    title={title}
+    description={description}
+    openGraph={{
+      basic: {
+        title: title,
+        type: "website",
+        image: "https://vkurse/images/Logo.png",
+      }
+    }}
+    extend={{
+      link: [{ rel: "icon", href: "https://vkurse.ru/favicon.ico" }]
+    }}
+  />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="overflow-hidden overflow-y-auto bg-body pt-[100px]">
+    <Navbar />
+    <slot />
+    <Footer />
+    <div class="btn-up btn-up_hide">
+      <svg width="32" height="32" fill="#fff" viewBox="0 0 16 16"
+        ><path
+          fill-rule="evenodd"
+          d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"
+        ></path></svg
+      >
+    </div>
+
+    <CounterFooter />
+  </body>
+  <script>
+    const btnUp = {
+      el: document.querySelector(".btn-up"),
+      show() {
+        this.el.classList.remove("btn-up_hide");
+      },
+      hide() {
+        this.el.classList.add("btn-up_hide");
+      },
+      addEventListener() {
+        window.addEventListener("scroll", () => {
+          const scrollY = window.scrollY || document.documentElement.scrollTop;
+          scrollY > 400 ? this.show() : this.hide();
+        });
+        document.querySelector(".btn-up").onclick = () => {
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+          });
+        };
+      }
+    };
+    btnUp.addEventListener();
+    const toggleMenu = document.querySelector(
+      "[data-toggle-nav]"
+    ) as HTMLButtonElement;
+    const navbar = document.querySelector("[data-navbar]") as HTMLDivElement;
+    const overlayNav = document.querySelector(
+      "[data-nav-overlay]"
+    ) as HTMLDivElement;
+    if (toggleMenu) {
+      toggleMenu.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (toggleMenu.getAttribute("data-open-nav") === "false") {
+          toggleMenu.setAttribute("data-open-nav", "true");
+          overlayNav.setAttribute("data-is-visible", "true");
+          document.body.classList.add("!overflow-y-hidden");
+          navbar.style.height = `${navbar.scrollHeight}px`;
+        } else {
+          toggleMenu.setAttribute("data-open-nav", "false");
+          overlayNav.setAttribute("data-is-visible", "false");
+          document.body.classList.remove("!overflow-y-hidden");
+          navbar.style.height = "0px";
+        }
+      });
+
+      navbar.addEventListener("click", () => {
+        toggleMenu.setAttribute("data-open-nav", "false");
+        overlayNav.setAttribute("data-is-visible", "false");
+        document.body.classList.remove("!overflow-y-hidden");
+        navbar.style.height = "0px";
+      });
+
+      overlayNav.addEventListener("click", () => {
+        toggleMenu.setAttribute("data-open-nav", "false");
+        overlayNav.setAttribute("data-is-visible", "false");
+        document.body.classList.remove("!overflow-y-hidden");
+        navbar.style.height = "0px";
+      });
+    }
+
+    let elemArray = document.querySelectorAll(
+      "#wrap_button_tab, #wrapper_c, #wrapper_tasks, #wrapper_roboto, #corporate_cloud, #corporate_cloud_zoom, #slider_for_adaptive, #wrapper_modul, #slider_for_adaptive_broadcasts, #for_slider_wrap_partner, #for_slide_wrap_benefit, #wrap_button_tab_for_partners, #for_slide_wrap_large_client, #wrap_content_full_sertification, #wrapper_corporate_client, #wrapper_corporate_client_hibrid_cloud, #slider_for_adaptive_corporate_client"
+    );
+    elemArray.forEach((elem, i) => {
+      elem.addEventListener("wheel", function (event) {
+        let wrap_block = this.offsetWidth;
+        if (event.deltaMode == event.DOM_DELTA_PIXEL) {
+          var modifier = 1;
+        } else if (event.deltaMode == event.DOM_DELTA_LINE) {
+          var modifier = parseInt(getComputedStyle(this).lineHeight);
+        } else if (event.deltaMode == event.DOM_DELTA_PAGE) {
+          var modifier = this.clientHeight;
+        }
+        if (event.deltaY != 0) {
+          if (
+            this.scrollLeft + wrap_block >=
+            this.querySelector("div").offsetWidth
+          ) {
+            this.scrollLeft += modifier * event.deltaY;
+          } else if (
+            this.scrollLeft + wrap_block <
+            this.querySelector("div").offsetWidth
+          ) {
+            this.scrollLeft += modifier * event.deltaY;
+            if (wrap_block == this.scrollLeft + wrap_block) {
+              event.defaultPrevented;
+            } else {
+              event.preventDefault();
+            }
+          }
+        }
+      });
+    });
+  </script>
+</html>
+<style lang="scss" is:global>
+  $Montserrat: "Montserrat", sans-serif;
+  $offset: 187;
+  $duration: 1.4s;
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@500;600&family=Roboto:ital,wght@0,500;0,700;1,500&family=Unbounded&display=swap");
+
+  /* WebKit (Chrome, Safari, Opera) */
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    width: 0px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+    width: 0px;
+  }
+
+  .btn-up {
+    position: fixed;
+    background-color: #009373;
+    right: 20px;
+    bottom: -2px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 50px;
+    border: 2px solid #fff;
+    &:hover {
+      background-color: #00765c;
+    }
+  }
+
+  #wrap_button_tab,
+  #wrapper_c,
+  #wrapper_tasks,
+  #wrapper_roboto,
+  #corporate_cloud,
+  #corporate_cloud_zoom,
+  #slider_for_adaptive,
+  #wrapper_modul,
+  #slider_for_adaptive_broadcasts,
+  #for_slider_wrap_partner,
+  #for_slide_wrap_benefit,
+  #wrap_button_tab_for_partners,
+  #for_slide_wrap_large_client,
+  #wrap_content_full_sertification,
+  #wrapper_corporate_client,
+  #wrapper_corporate_client_hibrid_cloud,
+  #slider_for_adaptive_corporate_client {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .btn-up_hide {
+    display: none;
+  }
+  html {
+    min-height: 100%;
+  }
+  :root {
+    --color-bg: 255 255 255;
+    --color-border: 255 255 255;
+    --color-box: 255 255 255;
+    --box-border: 229 231 235;
+    --box-sd: 226 232 240 / 0.5;
+    --heading-1: 23 37 84;
+    --heading-2: 31 41 55;
+    --heading-3: 55 65 81;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: "Open Sans", sans-serif;
+  }
+  body {
+    font-weight: 600;
+    /* font-family: "Raleway", sans-serif; */
+  }
+
+  .info_message_success,
+  .info_message_error {
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+    z-index: 999;
+  }
+
+  .spinner {
+    animation: rotator $duration linear infinite;
+  }
+
+  @keyframes rotator {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(270deg);
+    }
+  }
+
+  .path {
+    stroke-dasharray: $offset;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    animation:
+      dash $duration ease-in-out infinite,
+      colors ($duration * 4) ease-in-out infinite;
+  }
+
+  @keyframes colors {
+    0% {
+      stroke: #1b9a59;
+    }
+
+    25% {
+      stroke: #1b9a59;
+    }
+
+    50% {
+      stroke: #1b9a59;
+    }
+
+    75% {
+      stroke: #1b9a59;
+    }
+
+    100% {
+      stroke: #1b9a59;
+    }
+  }
+
+  @keyframes dash {
+    0% {
+      stroke-dashoffset: $offset;
+    }
+
+    50% {
+      stroke-dashoffset: calc($offset / 4);
+      transform: rotate(135deg);
+    }
+
+    100% {
+      stroke-dashoffset: $offset;
+      transform: rotate(450deg);
+    }
+  }
+
+  [data-toggle-nav][data-open-nav="true"] #line1 {
+    transform: translateY(0.375rem) rotate(40deg);
+  }
+  [data-toggle-nav][data-open-nav="true"] #line2 {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  [data-toggle-nav][data-open-nav="true"] #line3 {
+    transform: translateY(-0.375rem) rotate(-40deg);
+  }
+
+  [data-nav-overlay][data-is-visible="true"] {
+    visibility: visible;
+    display: flex;
+    background: none;
+  }
+
+  .heading {
+    font-size: 36px;
+    font-family: "Montserrat", sans-serif;
+    text-align: left;
+    margin-bottom: 65px;
+    margin-top: 40px;
+    padding: 0 10px;
+    font-weight: 600;
+    line-height: 44px;
+  }
+
+  @media (max-width: 550px) {
+    .heading {
+      font-size: 24px !important;
+    }
+    .info_message_success,
+    .info_message_error {
+      left: 20px;
+      width: 300px;
+    }
+  }
+</style>

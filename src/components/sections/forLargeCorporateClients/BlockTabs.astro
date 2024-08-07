@@ -1,0 +1,93 @@
+---
+import Container from "../../shared/Container.astro";
+import TabsName from "../tabs/TabsName.astro";
+import TabsContent from "../tabs/TabsContent.astro";
+import infoTabs from "../tabs/infoTabsForCorporateClients.js";
+---
+
+<section id="block_eight" class="mb-[65px]">
+  <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+    <div class="wrapper_opportunities">
+      <div class="heading" id="test">
+        Все возможности для эффективных коммуникаций
+      </div>
+      <div id="wrap_button_tab">
+        <div>
+          <ul class="mb-5" role="tablist" data-te-nav-ref>
+            {
+              infoTabs.tabsName.map((item, i) => {
+                return <TabsName {...item} index={i} width="w-[240px]" />;
+              })
+            }
+          </ul>
+        </div>
+      </div>
+      <div class="mb-6 wrap_content_tab">
+        {
+          infoTabs.tabsContent.map((item, i) => {
+            return <TabsContent {...item} index={i} />;
+          })
+        }
+      </div>
+    </div>
+  </Container>
+  <script>
+    import { Tab, initTE } from "tw-elements";
+    initTE({ Tab });
+  </script>
+</section>
+
+<style lang="scss">
+  .wrapper_opportunities {
+    width: 100%;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      gap: 24px;
+      > li {
+        width: 265px;
+      }
+    }
+  }
+  .heading {
+    font-size: 36px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    margin-bottom: 65px;
+    margin-top: 40px;
+  }
+  @media (max-width: 1079px) {
+    .wrapper_opportunities {
+      #wrap_button_tab {
+        width: 100%;
+        overflow-y: overlay;
+        > div {
+          display: flex;
+          flex-wrap: nowrap;
+          width: 1050px;
+        }
+      }
+      .wrap_content_tab {
+        overflow: hidden;
+      }
+    }
+  }
+
+  @media (min-width: 1250px) {
+    .wrapper_opportunities {
+      #wrap_button_tab {
+        width: 100%;
+        overflow-y: overlay;
+        > div > ul {
+          display: flex;
+          justify-content: space-between !important;
+          flex-wrap: nowrap;
+        }
+      }
+      .wrap_content_tab {
+        overflow: hidden;
+      }
+    }
+  }
+</style>

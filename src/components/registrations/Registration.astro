@@ -1,0 +1,148 @@
+<script>
+    import {
+        Tab,
+        Validation,
+        Input,
+        Datepicker,
+        Timepicker,
+        initTE,
+    } from "tw-elements";
+
+    initTE({ Tab, Validation, Input, Datepicker, Timepicker });
+
+    const fullValidationForm = document.getElementById("form-0");
+
+    const fullValidation = new Validation(fullValidationForm, {
+        customErrorMessages: {
+            contains: "The field must contain the '{contains}' word",
+        },
+        customRules: {
+            contains: (value, message, string) => {
+                return value.includes(string)
+                    ? true
+                    : message.replace("{contains}", string);
+            },
+        },
+        submitCallback: (e, valid) => {
+            console.log("Do something ...", "Validation passed: ", valid);
+        },
+    });
+
+    fullValidationForm.addEventListener("invalid.te.validation", (e) => {
+        console.log("Something went wrong!");
+    });
+    fullValidationForm.addEventListener("valid.te.validation", (e) => {
+        console.log("All good!");
+    });
+
+    const resultsForm = document.getElementById("form-results");
+
+    const resultValidation = new Validation(resultsForm);
+
+    resultsForm.addEventListener("valid.te.validation", (e) => {
+        const results = [];
+        resultsForm.querySelectorAll("input").forEach((input) => {
+            results.push({ [input.name]: input.value });
+        });
+    });
+</script>
+
+<form id="form-0" data-te-active-validation="true">
+    <div
+        class="relative mb-3"
+        data-te-input-wrapper-init
+        data-te-validate="input"
+        data-te-validation-ruleset="isRequired|isEmail"
+    >
+        <input
+            type="text"
+            name="email"
+            class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+            id="exampleInput2"
+            placeholder="Example label"
+        />
+        <label
+            for="exampleInput2"
+            class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+            >Email
+        </label>
+    </div>
+    <div
+        class="relative mb-3"
+        data-te-input-wrapper-init
+        data-te-validate="input"
+        data-te-validation-ruleset="isRequired|isNumber|isLongerThan(2)"
+    >
+        <input
+            type="text"
+            class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+            id="exampleInput1"
+            placeholder="Example label"
+        />
+        <label
+            for="exampleInput1"
+            class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+            >пароль
+        </label>
+    </div>
+
+    <div class="offer">
+        Нажимая на кнопку "Перейти к оплате" Вы подтверждаете
+        своё согласие с <span><a href="https://b24.vkurse.ru/~oMDOO" target="_blank">политикой обработки персональных данных</a></span>
+    </div>
+    <button
+        type="button"
+        id="reg"
+        class="w-[100%] inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+        data-te-submit-btn-ref
+    >
+        Перейти к оплате
+    </button>
+</form>
+
+<script>
+    const tgt = document.querySelector("#reg");
+    tgt.addEventListener("click", () => {
+        console.log("Hello, on client");
+        fetch(import.meta.env.PUBLIC_API_URL + "login-check", {
+            method: "POST",
+            body: JSON.stringify({
+                username: "demo@vkurse.ru",
+                password: "demo1",
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+    });
+</script>
+
+<style>
+    .pay {
+        text-align: center;
+        padding-bottom: 16px;
+        padding-top: 32px;
+    }
+    .pay span {
+        color: #0093f5;
+    }
+    button {
+        background: #009373;
+        border-radius: 12px;
+        min-height: 56px;
+        box-shadow: none;
+        text-transform: none;
+        font-size: 16px;
+    }
+    button:hover {
+        box-shadow: none;
+        background: #00765c;
+    }
+    *,
+    ::before,
+    ::after {
+        border-radius: 12px !important;
+    }
+</style>

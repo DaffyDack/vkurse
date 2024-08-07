@@ -1,0 +1,111 @@
+---
+import Container from "../../../../shared/Container.astro";
+import { tariff } from "./forMeetings.json";
+import Table from "./Table.astro";
+---
+
+<script>
+    import { Tab, initTE } from "tw-elements";
+    initTE({ Tab });
+</script>
+<section id="block_inner_tariffs">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        <div>
+            <!--Tabs navigation-->
+            <div class="wrapper_tab">
+                <ul class="upper_level" role="tablist" data-te-nav-ref>
+                    <li role="presentation" class="">
+                        <a
+                            href="#tabs-inner-home02"
+                            class="my-2 block"
+                            data-te-toggle="pill"
+                            data-te-target="#tabs-inner-home02"
+                            data-te-nav-active
+                            role="tab"
+                            aria-controls="tabs-inner-ome02"
+                            aria-selected="true">Classic Webinars</a
+                        >
+                    </li>
+                    <li role="presentation" class="">
+                        <a
+                            href="#tabs-inner-profile02"
+                            class="my-2 block"
+                            data-te-toggle="pill"
+                            data-te-target="#tabs-inner-profile02"
+                            role="tab"
+                            aria-controls="tabs-inner-profile02"
+                            aria-selected="false">One-Time Webinar</a
+                        >
+                    </li>
+                </ul>
+            </div>
+
+            <!--Tabs content-->
+            <div class="mb-6">
+                <div
+                    class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
+                    id="tabs-inner-home02"
+                    role="tabpanel"
+                    aria-labelledby="tabs-inner-home-tab02"
+                    data-te-tab-active
+                >
+                    <Table options={tariff[0]} />
+                </div>
+                <div
+                    class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
+                    id="tabs-inner-profile02"
+                    role="tabpanel"
+                    aria-labelledby="tabs-inner-profile-tab02"
+                >
+                    <Table options={tariff[1]} />
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
+<style lang="scss">
+    #block_inner_tariffs {
+        background: #f3f6fa;
+        padding: 0;
+        .wrapper_tab {
+            display: flex;
+            justify-content: center;
+            .upper_level {
+                display: flex;
+                justify-content: space-between;
+                background: #e8edf5;
+                border-radius: 24px;
+                padding: 8px;
+                li {
+                    width: 212px;
+                    border-radius: 16px;
+                    a {
+                        color: #53627a;
+                        border: 2px solid transparent;
+                        background: #fff;
+                        border-radius: 16px;
+                        height: 44px;
+                        margin: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        &[data-te-nav-active] {
+                            color: #009373;
+                            border: 2px solid #009373;
+                        }
+                    }
+                    &:first-child {
+                        a {
+                            margin-right: 4px;
+                        }
+                    }
+                    &:last-child {
+                        a {
+                            margin-left: 4px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+</style>

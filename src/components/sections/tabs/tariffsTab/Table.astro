@@ -1,0 +1,114 @@
+---
+const { options, thead } = Astro.props;
+import TariffModal from "../../../modals/TariffModal.astro";
+---
+
+<div class="flex flex-col">
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="inline-block min-w-full py-0 sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full text-left text-sm font-light">
+          <thead class="border-b dark:border-neutral-500">
+            <tr>
+              {
+                thead.map((item, i) => {
+                  return (
+                    <th scope="col" class="special_width px-3 py-2">
+                      {item}
+                    </th>
+                  );
+                })
+              }
+            </tr>
+          </thead>
+          <tbody>
+            {
+              options.map((item) => {
+                return (
+                  <tr class="border-b dark:border-neutral-500">
+                    {item.map((rows, j) => {
+                      return (
+                        <td class="px-3 py-3">
+                          {typeof rows === "object" && rows !== null ? (
+                            <div>
+                              <div>
+                                <b>{rows.price}</b> ₽
+                              </div>
+                              <button
+                                data-te-toggle="modal"
+                                data-te-target="#exampleModal"
+                                class={`btn w-full mt-2 border-2 ${
+                                  rows.pay ? "green pay" : "blue"
+                                }   text-white`}
+                                name={rows.name}
+                                value={rows.pay}
+                              >
+                                {rows.pay ? "купить" : "заявка"}
+                              </button>
+                            </div>
+                          ) : (
+                            <p>{rows}</p>
+                          )}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                );
+              })
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <TariffModal />
+  </div>
+
+  <script>
+    let payBtn = document.querySelectorAll(".pay");
+    for (const key in payBtn) {
+      if (payBtn[key].innerHTML !== undefined) {
+        payBtn[key].addEventListener("click", (e) => {
+          localStorage.setItem("tariff", e.target.name);
+          window.location.href = "/registrationApplication";
+        });
+      }
+    }
+  </script>
+  <style lang="scss">
+    .special_width {
+      width: 100px;
+    }
+    td,
+    th {
+      text-align: center;
+      vertical-align: middle;
+      background: #fff;
+      border: 2px solid #f3f6fa;
+    }
+    button {
+      border-radius: 12px;
+      line-height: 20px;
+      padding: 8px 4px;
+      font-size: 14px;
+      min-width: 84px;
+      &.green {
+        border-color: #009373;
+        color: #009373;
+        background: #ebfffb;
+        &:hover {
+          border-color: #00765c;
+          color: #00765c;
+        }
+      }
+      &.blue {
+        border-color: #0093f5;
+        color: #0093f5;
+        background: #fff;
+        &:hover {
+          border-color: #0272bc;
+          color: #0272bc;
+        }
+      }
+    }
+  </style>
+</div>

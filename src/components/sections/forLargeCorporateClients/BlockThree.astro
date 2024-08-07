@@ -1,0 +1,92 @@
+---
+import Container from "../../shared/Container.astro";
+import { certification } from "./config/certification.json";
+---
+
+<section id="block_three" class="mb-[65px]">
+  <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+    <div class="wrapper_certification">
+      <div class="heading">Полная сертификация</div>
+      <div class="discription"></div>
+      <div class="wrap_content" id="wrap_content_full_sertification">
+        <div>
+          {
+            certification.map((item) => {
+              return (
+                <div class="content">
+                  <div class="img" />
+                  <div class="wrap">
+                    <div class="title">{item.title}</div>
+                    <button>{item.button}</button>
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+<style lang="scss">
+  .heading {
+    text-align: center;
+  }
+  .wrapper_certification {
+    .wrap_content {
+      > div {
+        width: 100%;
+        display: flex;
+        overflow: scroll;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        overflow: hidden;
+      }
+      .content {
+        flex-basis: 328px;
+        gap: 20px 0;
+        border-radius: 16px;
+        overflow: hidden;
+        @for $i from 1 through 6 {
+          &:nth-child(#{$i}) {
+            .img {
+              min-height: 100px;
+              width: 100%;
+              background: url(/images/forLargeCorporateClients/Type#{$i}.png)
+                no-repeat
+                center;
+              background-size: cover;
+            }
+          }
+        }
+        .wrap {
+          background: #fafbfc;
+          padding: 24px;
+          min-height: 150px;
+          .title {
+          }
+          button {
+            width: 100%;
+            color: #0093f5;
+            background: url(/images/forLargeCorporateClients/arrow.png)
+              no-repeat top right;
+            background-size: 16px;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 715px) {
+    .wrapper_certification {
+      .wrap_content {
+        overflow-y: overlay;
+        > div {
+          width: 1080px;
+        }
+      }
+    }
+  }
+</style>

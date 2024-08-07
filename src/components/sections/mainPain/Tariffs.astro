@@ -1,0 +1,48 @@
+---
+import Container from "../../shared/Container.astro";
+import TariffData from "src/components/sections/tabs/tariffsTab/Tariffs.astro";
+import TariffTab from "src/components/sections/tabs/tariffsTab/testTariffs/TariffsTest.astro";
+import axios from "axios";
+
+const response = await axios.get(import.meta.env.PUBLIC_API_URL + "v1/tariff", {
+	responseType: "json",
+});
+let products = await response.data;
+---
+
+<section id="block_tariff">
+	<Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+		<!-- <TariffTab /> -->
+		<TariffData response={products.data} />
+	</Container>
+</section>
+
+<style lang="scss">
+	#block_tariff {
+		background: #f3f6fa;
+		margin-top: 300px;
+		margin-bottom: 280px;
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			top: -91px;
+			left: 0;
+			width: 100%;
+			height: 161px;
+			background: #f3f6fa;
+			transform: rotate(-2deg);
+			border-radius: 33%;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: -62px;
+			width: 100%;
+			height: 150px;
+			background: #f3f6fa;
+			transform: rotate(3deg);
+			border-radius: 33%;
+		}
+	}
+</style>

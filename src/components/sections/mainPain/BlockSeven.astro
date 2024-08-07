@@ -1,0 +1,325 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_seven">
+    <Container className="flex">
+        <div class="heading">
+            В каких задачах <br class="br-desktop" /> помогает <br
+                class="br-tablet"
+            /> ВКУРСЕ
+        </div>
+        <div class="wrapper_tasks" id="wrapper_tasks">
+            <div>
+                <ul>
+                    <li class="grid-1">
+                        <div class="title">
+                            <span>Адаптировать</span>
+                            <br class="br-desktop" /> сотрудников
+                        </div>
+                        <div class="img">
+                            <img src="/images/ContentFromTasks1.png" alt="" />
+                        </div>
+                    </li>
+                    <li class="grid-2">
+                        <div class="title">
+                            Организовать<br class="br-tablet" /> удобное <span
+                                >онлайн-общение и встречи</span
+                            >
+                        </div>
+                        <div class="img">
+                            <img
+                                class="table"
+                                src="/images/ContentFromTasks2.png"
+                                alt=""
+                            />
+                            <img
+                                class="desktop"
+                                src="/images/ContentFromTasksDesktop2.png"
+                                alt=""
+                            />
+                        </div>
+                    </li>
+                    <li class="grid-3 for_text_center">
+                        <div>
+                            Собирать <br /> партнеров и
+                            <br /> клиентов <br class="br-tablet" />
+                             на <span>вебинар</span>
+                        </div>
+                    </li>
+                    <li class="grid-4 for_text_center">
+                        <div>
+                            <span>Обучать</span>
+                            <br class="br-tablet" />
+                             коллег<br />
+                             и сотрудников<br />
+                        </div>
+                    </li>
+                    <li class="grid-5 for_text_center">
+                        <div>
+                            Проводить <br /><span>Онлайн-конференции</span>
+                        </div>
+                    </li>
+                    <li class="grid-6">
+                        <div class="title">
+                            Вести <br class="br-tablet" />
+                            <span>мастер-классы<br /> и семинары</span>
+                        </div>
+                        <div class="img">
+                            <img src="/images/ContentFromTasks3.png" alt="" />
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </Container>
+</section>
+<style lang="scss">
+    $color_1: #0093f5;
+    $font-family_1: "Montserrat", sans-serif;
+    .br-desktop {
+        display: none;
+    }
+    .heading {
+        color: #fff;
+        margin: 0;
+    }
+    #block_seven {
+        position: relative;
+        overflow: hidden;
+        margin-top: 50px;
+        background: #001d31;
+        padding-top: 100px;
+        &::after {
+            content: "";
+            height: 200px;
+            width: 120%;
+            background: #fff;
+            position: absolute;
+            top: -110px;
+            left: -31px;
+            z-index: 1;
+            transform: rotateZ(2deg);
+        }
+        &::before {
+            content: "";
+            height: 200px;
+            width: 120%;
+            background: #fff;
+            position: absolute;
+            bottom: -110px;
+            left: -31px;
+            z-index: 1;
+            transform: rotateZ(-1deg);
+        }
+    }
+
+    .for_text_center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .wrapper_tasks {
+        width: 100%;
+        background: #001d31;
+        position: relative;
+        padding-top: 30px;
+        overflow-y: overlay;
+        padding-bottom: 150px;
+    }
+    ul {
+        display: flex;
+        text-align: center;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 24px;
+        > li {
+            width: 328px;
+            height: 360px;
+            background: #fff;
+            border-radius: 24px;
+            font-size: 20px;
+            font-family: $font-family_1;
+            text-align: center;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            &.grid-3,
+            &.grid-4,
+            &.grid-5 {
+                justify-content: center;
+                div {
+                    filter: blur(0px);
+                    transition: filter 0.5s ease-in-out;
+                }
+            }
+            img {
+                filter: blur(0px);
+                transition: filter 0.5s ease-in-out;
+            }
+            &::after {
+                content: "Возможность проведения вебинаров, онлайн-тренингов и лекций с помощью инструментов для обучения";
+                position: absolute;
+                bottom: -95%;
+                left: 50%;
+                right: 0;
+                width: 95%;
+                background: #001d31;
+                transform: translateX(-50%);
+                color: #fff;
+                text-align: center;
+                padding: 10px;
+                border-radius: 16px;
+                font-size: 14px;
+                transition: bottom 0.5s ease-in-out;
+                text-align: left;
+            }
+            &:hover {
+                &.grid-3,
+                &.grid-4,
+                &.grid-5 {
+                    div {
+                        filter: blur(4px);
+                        transition: filter 0.5s ease-in-out;
+                    }
+                }
+                img {
+                    filter: blur(4px);
+                    transition: filter 0.5s ease-in-out;
+                }
+                &::after {
+                    bottom: 6px;
+                    transition: bottom 0.5s ease-in-out;
+                }
+            }
+            .title {
+                padding: 21px;
+            }
+            span {
+                color: $color_1;
+            }
+        }
+    }
+    @media (max-width: 1079px) {
+        .wrapper_tasks {
+            > div {
+                text-align: center;
+                flex-wrap: nowrap;
+                width: 2150px;
+            }
+        }
+    }
+    @media (min-width: 1900px) {
+        #block_seven {
+            &::before {
+                bottom: -175px;
+            }
+            .wrapper_tasks {
+                padding-bottom: 207px;
+            }
+        }
+        .br-desktop {
+            display: block;
+        }
+        .br-tablet {
+            display: none;
+        }
+        .heading {
+            font-size: 48px;
+            padding-left: 0;
+            margin-top: 163px;
+            line-height: 57px;
+            margin-bottom: 35px;
+        }
+        ul {
+            display: grid;
+
+            grid-template-areas:
+                "A A A B B B B B B B B B B B B C C C"
+                "A A A B B B B B B B B B B B B C C C"
+                "A A A B B B B B B B B B B B B C C C"
+                "A A A B B B B B B B B B B B B F F F"
+                "A A A B B B B B B B B B B B B F F F"
+                "D D D B B B B B B B B B B B B F F F"
+                "D D D E E E E E E E E E E E E F F F"
+                "D D D E E E E E E E E E E E E F F F";
+            height: 700px;
+            justify-content: space-around;
+            li {
+                width: auto;
+                height: auto;
+                font-size: 32px;
+                line-height: 36px;
+                padding: 34px 0;
+                img.table {
+                    display: none;
+                }
+                img.desktop {
+                    display: block;
+                    margin-bottom: 73px;
+                }
+                &::after {
+                    line-height: 28px;
+                }
+                &.grid-1 {
+                    grid-area: A;
+                    width: 335px;
+                    height: 400px;
+                    padding-top: 10px;
+                    padding-bottom: 0;
+                }
+                &.grid-2 {
+                    grid-area: B;
+                    width: 697px;
+                    height: 479px;
+                    letter-spacing: 2.5px;
+                    line-height: 40px;
+                    padding-top: 10px;
+                }
+                &.grid-3 {
+                    grid-area: C;
+                    width: 335px;
+                    height: 280px;
+                    &::after {
+                        height: 95%;
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+                &.grid-4 {
+                    grid-area: D;
+                    height: 277px;
+                    width: 334px;
+                    &::after {
+                        height: 95%;
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+                &.grid-5 {
+                    grid-area: E;
+                    height: 200px;
+                    &::after {
+                        height: 95%;
+                        width: 98%;
+                        display: flex;
+                        align-items: center;
+                    }
+                    > div {
+                        margin-right: 7px;
+                        span {
+                            padding-left: 5px;
+                        }
+                    }
+                }
+                &.grid-6 {
+                    grid-area: F;
+                    padding-top: 10px;
+                    padding-bottom: 0;
+                }
+            }
+        }
+    }
+</style>

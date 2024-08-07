@@ -1,0 +1,164 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_one">
+  <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+    <div class="wrapper">
+      <div class="bock_left">
+        <div class="title mb-[40px]">
+          Развивайте своих Клиентов с помощью «ВКУРСЕ»!
+        </div>
+        <div class="discription">
+          Дайте вашим Клиентам лучшую корпоративную онлайн-платформу с
+          мессенджером для совещаний, обучений и крупных конференций!
+        </div>
+        <div class="buttons">
+          <div class="wrapper_button">
+            <a href="/tariffs"></a><button class="tarifs"
+              ><div>Тарифы</div></button
+            >
+          </div>
+          <button class="connect">
+            <a href="#contacts" class="flex h-full items-center justify-center"
+              >Связаться с нами</a
+            ></button
+          >
+        </div>
+      </div>
+      <div class="img">
+        <img src="/images/Partners.png" />
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style lang="scss">
+  .buttons {
+    display: flex;
+  }
+  .wrapper {
+    display: flex;
+    width: 100%;
+    // background: url(/images/Partners.png) no-repeat top 26px right -50px;
+    padding: 16px 0;
+  }
+  .bock_left {
+    width: 480px;
+  }
+  .title {
+    font-size: 36px;
+    font-family: "Montserrat", sans-serif;
+    line-height: 40px;
+  }
+  .discription {
+    font-size: 18px;
+    color: #1c2129;
+  }
+  button {
+    &.tarifs {
+      width: 145px;
+      height: 56px;
+      background: #009373;
+      background-size: 15px;
+      color: #fff;
+      border-radius: 16px;
+      text-align: left;
+      padding-left: 20px;
+      margin-top: 40px;
+      &:hover {
+        background: #00765c;
+      }
+      div {
+        position: relative;
+        display: inline;
+        &:after {
+          content: "";
+          width: 20px;
+          height: 20px;
+          top: 0;
+          right: -26px;
+          position: absolute;
+          background: url(/images/Arrow.png) no-repeat top 50% right;
+          background-size: 15px;
+        }
+      }
+    }
+    &.connect {
+      width: 185px;
+      height: 56px;
+      background-size: 15px;
+      color: #53627a;
+      border-radius: 16px;
+      border: 2px solid #d0daeb;
+      text-align: center;
+      margin-top: 40px;
+      margin-left: 16px;
+      &:hover {
+        border-color: #a7b7d0;
+      }
+    }
+  }
+  @media (max-width: 1075px) {
+    .title {
+      font-size: 24px;
+    }
+    .wrapper {
+      // background: url(/images/video2.gif) no-repeat top -16px center;
+      br {
+        display: none;
+      }
+    }
+    .bock_left {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 780px) {
+    .wrapper {
+      flex-direction: column-reverse;
+    }
+
+    .img {
+      display: flex;
+      justify-content: center;
+    }
+
+    .img img {
+      height: 256px;
+      width: auto;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .wrapper_button {
+      display: flex;
+      flex-direction: column !important;
+      button {
+        margin: 10px 0 0 0;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        &:first-child {
+          margin-top: 20px;
+        }
+        &.tarifs {
+          div {
+            position: relative;
+            display: inline;
+            &:after {
+              content: "";
+              width: 20px;
+              height: 20px;
+              top: 0;
+              right: -26px;
+              position: absolute;
+              background: url(/images/Arrow.png) no-repeat top 50% right;
+              background-size: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

@@ -1,0 +1,112 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_three">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        <div class="wrap_three">
+            <div class="heading">ВКУРСЕ больше, чем просто ZOOM</div>
+            <div class="wrapper" id="corporate_cloud_zoom">
+                <div class="wrap_for_slide">
+                    <div>
+                        <span>Поддержка и горячая линия</span> для клиентов и
+                        онлайн-участников мероприятий
+                    </div>
+                    <div>Корпоративный <span>мессенджер</span></div>
+                    <div>
+                        Загрузка и <span>демонстрация <br> контента</span>
+                    </div>
+                    <div>
+                        Виртуальные <br><span>переговорные<br> комнаты 24/7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
+<style lang="scss">
+    #block_three {
+        .wrap_three {
+            background: #f3f6fa;
+            margin-top: 80px;
+            overflow: hidden;
+            position: relative;
+            .heading {
+                margin-top: 95px;
+                text-align: center;
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                height: 80px;
+                width: 120%;
+                background: #fff;
+                top: -49px;
+                left: 86%;
+                transform: translate(-50%) rotate(3deg);
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                height: 80px;
+                width: 120%;
+                background: #fff;
+                bottom: -49px;
+                left: 86%;
+                transform: translate(-50%) rotate(-3deg);
+            }
+            .wrapper {
+                width: 100%;
+                display: flex;
+                padding: 20px 20px 135px;
+                .wrap_for_slide {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 24px;
+                    div {
+                        width: 328px;
+                        height: 400px;
+                        border-radius: 24px;
+                        background: #fff;
+                        padding: 24px;
+                        font-size: 22px;
+                        color: #1c2129;
+                        line-height: 28px;
+                        span {
+                            color: #0093f5;
+                        }
+                        @for $i from 1 through 4 {
+                            &:nth-child(#{$i}) {
+                                background: url(/images/corporateCloud/Content#{$i}.png)
+                                    no-repeat
+                                    right
+                                    bottom
+                                    #fff;
+                                background-size: contain;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 1079px) {
+        #block_three {
+            .wrap_three {
+                &::after,
+                &::before {
+                    left: 50%;
+                }
+                .wrapper {
+                    overflow: scroll;
+                    .wrap_for_slide {
+                        width: 1200px;
+                        flex-wrap: nowrap;
+                        gap: 20px;
+                    }
+                }
+            }
+        }
+    }
+</style>

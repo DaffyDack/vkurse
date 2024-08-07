@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /*utm_
+Host: https://vkurse.ru/
+Sitemap: https://vkurse.ru/sitemap-index.xml
+
+
+
+

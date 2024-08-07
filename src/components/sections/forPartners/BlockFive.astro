@@ -1,0 +1,195 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_five">
+  <Container
+    className="flex flex-col midmd:flex-row gap-10 lg:gap-12 mb-[104px]"
+  >
+    <div class="wrapper_benefit">
+      <div class="heading">Выгоды от партнерства со «ВКУРСЕ»</div>
+      <div class="for_slide_wrap" id="for_slide_wrap_benefit">
+        <div class="wrap">
+          <div>
+            <ul>
+              <li>Партнерские скидки и акции</li>
+              <li>Материалы для отдела продаж и маркетинга</li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li>Регистрация лида</li>
+              <li>Личный эксперт по развитию бизнеса</li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li>Бесплатное обучение продукту и продажам</li>
+              <li>Статус партнера на сайте Вкурсе</li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li>Индивидуальный маркетинговый фонд</li>
+              <li>Бесплатная сертификация</li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li>Поддержка маркетингового эксперта</li>
+              <li>Жесткий резерв по сделке</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+<style lang="scss">
+  @media (min-width: 1250px) {
+    .wrap {
+      width: 100% !important;
+    }
+  }
+  #block_five {
+    margin-bottom: 80px;
+  }
+  .for_slide_wrap {
+    overflow-y: overlay;
+  }
+  .wrapper_benefit {
+    width: 100%;
+    .heading {
+      font-size: 36px;
+      font-family: "Montserrat", sans-serif;
+      text-align: left;
+      color: #1c2129;
+      margin-bottom: 24px;
+      margin-top: 24px;
+    }
+    .wrap {
+      display: flex;
+      justify-content: space-between;
+      width: 1040px;
+      gap: 10px;
+      > div {
+        flex-basis: 207px;
+        min-height: 330px;
+        ul {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          width: 100%;
+        }
+        &:nth-child(1) {
+          > ul {
+            justify-content: flex-end;
+            li {
+              border-radius: 16px;
+              padding: 12px;
+              background: rgb(226, 203, 118);
+              flex-basis: 120px;
+              margin-top: 10px;
+              &:first-child {
+                background: url(/images/forPartners/Icon1.png) no-repeat bottom
+                  10px right 10px #ffcccc;
+                background-size: 50px;
+              }
+              &:last-child {
+                background: url(/images/forPartners/Icon2.png) no-repeat bottom
+                  10px right 10px #ccfcff;
+                background-size: 50px;
+              }
+            }
+          }
+        }
+        &:nth-child(2) {
+          > ul {
+            li {
+              border-radius: 16px;
+              padding: 12px;
+              background: rgb(226, 203, 118);
+              flex-basis: 120px;
+              margin-bottom: 10px;
+              &:first-child {
+                background: url(/images/forPartners/Icon3.png) no-repeat bottom
+                  10px right 10px #ccfcff;
+                background-size: 50px;
+              }
+              &:last-child {
+                background: url(/images/forPartners/Icon4.png) no-repeat bottom
+                  10px right 10px #efccff;
+                background-size: 50px;
+              }
+            }
+          }
+        }
+        &:nth-child(3) {
+          > ul {
+            justify-content: center;
+            li {
+              border-radius: 16px;
+              padding: 12px;
+              background: rgb(226, 203, 118);
+              flex-basis: 120px;
+              margin: 10px 0;
+              &:first-child {
+                background: url(/images/forPartners/Icon5.png) no-repeat bottom
+                  10px right 10px #ffdecc;
+                background-size: 50px;
+              }
+              &:last-child {
+                background: url(/images/forPartners/Icon6.png) no-repeat bottom
+                  10px right 10px #ccf0ff;
+                background-size: 50px;
+              }
+            }
+          }
+        }
+        &:nth-child(4) {
+          > ul {
+            justify-content: flex-end;
+            li {
+              border-radius: 16px;
+              padding: 12px;
+              background: rgb(226, 203, 118);
+              flex-basis: 120px;
+              margin-top: 10px;
+              &:first-child {
+                background: url(/images/forPartners/Icon7.png) no-repeat bottom
+                  10px right 10px #dfccff;
+                background-size: 50px;
+              }
+              &:last-child {
+                background: url(/images/forPartners/Icon8.png) no-repeat bottom
+                  10px right 10px #ffcccc;
+                background-size: 50px;
+              }
+            }
+          }
+        }
+        &:nth-child(5) {
+          > ul {
+            li {
+              border-radius: 16px;
+              padding: 12px;
+              background: rgb(226, 203, 118);
+              flex-basis: 120px;
+              margin-bottom: 10px;
+              &:first-child {
+                background: url(/images/forPartners/Icon9.png) no-repeat bottom
+                  10px right 10px #ccfcff;
+                background-size: 50px;
+              }
+              &:last-child {
+                background: url(/images/forPartners/Icon10.png) no-repeat bottom
+                  10px right 10px #ffdecc;
+                background-size: 50px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

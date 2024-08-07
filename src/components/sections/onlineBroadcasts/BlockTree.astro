@@ -1,0 +1,108 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_three">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        <div class="wrapper_advantage">
+            <div class="heading">Онлайн-трансляции <br /> ВКурсе — это:</div>
+            <ul>
+                <li>Платформа</li>
+                <li>Оборудование</li>
+                <li>Студии и залы</li>
+                <li>Специалисты</li>
+            </ul>
+        </div>
+    </Container>
+</section>
+<style lang="scss">
+    $color_1: #0093f5;
+    $font-family_1: "Montserrat", sans-serif;
+    #block_three {
+        background: #001d31;
+        position: relative;
+        margin-bottom: 100px;
+        &::after {
+            content: "";
+            height: 100px;
+            width: 120%;
+            background: #001d31;
+            position: absolute;
+            top: -31px;
+            left: -10px;
+            transform: rotateZ(2deg);
+            border-radius: 30%;
+        }
+        &::before {
+            content: "";
+            height: 150px;
+            width: 120%;
+            background: #001d31;
+            position: absolute;
+            bottom: -46px;
+            left: -6px;
+            transform: rotateZ(-3deg);
+            border-radius: 30%;
+        }
+    }
+    .wrapper_advantage {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        .heading {
+            font-size: 36px;
+            font-family: "Montserrat", sans-serif;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 35px;
+            margin-top: 60px;
+        }
+    }
+    ul {
+        display: flex;
+        text-align: center;
+        flex-wrap: wrap;
+        width: 1000px;
+        margin: auto;
+        justify-content: center;
+        > li {
+            width: 328px;
+            height: 292px;
+            background: #fff;
+            border-radius: 24px;
+            margin-top: 24px;
+            font-size: 20px;
+            font-family: $font-family_1;
+            padding: 21px;
+            text-align: left;
+            &:nth-child(even) {
+                margin-left: 24px;
+            }
+            @for $i from 1 through 4 {
+                &:nth-child(#{$i}) {
+                    background: url(/images/onlineBroadcasts/Content#{$i}.png)
+                        no-repeat
+                        bottom
+                        0
+                        left
+                        0
+                        #fff;
+                    background-size: contain;
+                }
+            }
+        }
+    }
+    @media (max-width: 1070px) {
+        .wrapper_advantage {
+            .heading {
+                font-size: 24px;
+            }
+            ul {
+                width: auto;
+                li {
+                    margin: 24px;
+                }
+            }
+        }
+    }
+</style>

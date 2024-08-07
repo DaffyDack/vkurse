@@ -1,0 +1,78 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_four">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        <div class="wrap_four">
+            <div class="title">Почему “ВКУРСЕ”</div>
+            <div class="description">
+                «ВКУРСЕ» — это комплексное решение для удаленных коммуникаций
+                любого вида. Делайте групповые или 1х1 аудио/видеозвонки,
+                общайтесь в чатах с коллегами, собирайте совещания и
+                конференции, проводите вебинары или создайте масштабную
+                онлайн-трансляцию.
+            </div>
+        </div>
+    </Container>
+</section>
+<style lang="scss">
+    #block_four {
+        .wrap_four {
+            background: url(/images/corporateCloud/FrameBack.png) no-repeat
+                right top #009373;
+            text-align: left;
+            color: #fff;
+            padding: 32px;
+            border-radius: 24px;
+            width: 100%;
+            position: relative;
+            margin-top: 100px;
+            margin-bottom: 80px;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: 40px;
+                width: 400px;
+                height: 400px;
+                background: url(/images/corporateCloud/Frame.png) no-repeat
+                    center;
+                transform: translateY(-50%);
+            }
+            .title {
+                font-size: 36px;
+                font-family: "Montserrat", sans-serif;
+                margin-bottom: 24px;
+            }
+            .description {
+                width: 450px;
+                font-weight: 400;
+            }
+        }
+    }
+    @media (max-width: 940px) {
+        #block_four {
+            display: flex;
+            .wrap_four {
+                text-align: center;
+                background: url(/images/corporateCloud/FrameBack.png) no-repeat
+                    center top #009373;
+                    width: 290px;
+                    padding-top: 350px;
+                    box-sizing: content-box;
+                .description {
+                    width: 100%;
+                }
+                .title {
+                    font-size: 24px;
+                }
+                &::before {
+                    top: -60px;
+                    left: 50%;
+                    transform: translate(-50%);
+                }
+            }
+        }
+    }
+</style>

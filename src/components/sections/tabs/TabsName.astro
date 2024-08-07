@@ -1,0 +1,45 @@
+---
+const { id, name, href, role, index } = Astro.props;
+
+export interface Props{
+    id:string,
+    name:string,
+    href:string,
+    role: string,
+    index:number
+}
+---
+
+<li role=`${role}` class=`text-center`>
+    <a
+        href=`#${href}`
+        class=" block rounded px-7 pb-3.5 pt-4"
+        id=`${id}`
+        data-te-toggle="pill"
+        data-te-target=`#${href}`
+        data-te-nav-active={index == 0}
+        role="tab"
+        aria-controls=`${href}`
+        aria-selected="true">{name}</a
+    >
+</li>
+<style lang="scss">
+    li {
+        width: 264px;
+        > a {
+            min-height: 88px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: #53627A;
+            background: #F3F6FA;
+            padding: 9px;
+        }
+    }
+    a[data-te-nav-active] {
+        background: #001d31 !important;
+        color: #fff !important;
+    }
+</style>

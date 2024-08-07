@@ -1,0 +1,341 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_two">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        <div class="wrapper_advantage">
+            <ul class="flex">
+                <li class="li1 flex flex-col">
+                    <div class="li-label">
+                        <span>Серверы</span>&nbsp;на территории<br />
+                        <span>Российской федерации</span>
+                    </div>
+                    <div class="grow flex items-end">
+                        <img src="/images/Content1.png" class="rounded-3xl" />
+                    </div>
+                </li>
+
+                <li class="li2 flex flex-col">
+                    <div
+                        class="li-label flex items-center gap-[39px] modile_li2"
+                    >
+                        <img class="w-1/2" src="/images/300.jpg" />
+                        <div class="basis-1/2">
+                            активных<br />докладчиков<br />на одном экране
+                        </div>
+                    </div>
+                    <div class="px-[88px] grow flex items-end">
+                        <img src="/images/Content2.png" />
+                    </div>
+                </li>
+
+                <li class="li3 flex flex-col basis-3/4">
+                    <div class="li-label">
+                        Полностью <br /><span>Российское ПО</span><br /> и
+                        компания
+                    </div>
+
+                    <div class="grow flex items-end justify-center">
+                        <img
+                            src="/images/Content3.png"
+                            class="rounded-3xl h-4/5"
+                        />
+                    </div>
+                </li>
+
+                <li class="li4 flex flex-col basis-1/4">
+                    <div class="li-label">
+                        Отказоустойчи<br class="br-desktop" />вость<br
+                        />платформы<br /><span>(SLA 99,95%)</span>
+                    </div>
+                    <div class="grow flex items-end">
+                        <img src="/images/Content4.png" class="rounded-3xl" />
+                    </div>
+                </li>
+
+                <li class="li5 flex flex-col">
+                    <div class="li-label">
+                        От <span>50 до 10 000</span>
+                         участников <br class="br-desktop" /> в мероприятии
+                    </div>
+
+                    <div class="grow flex items-end justify-center">
+                        <img
+                            src="/images/Content5.png"
+                            class="rounded-3xl h-5/6"
+                        />
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </Container>
+</section>
+<style lang="scss">
+    $color_1: #0093f5;
+    $font-family_1: "Montserrat", sans-serif;
+    .br-desktop {
+        display: none;
+    }
+    #block_two {
+        background: #001d31;
+        position: relative;
+        overflow: hidden;
+        &::after {
+            content: "";
+            height: 200px;
+            width: 120%;
+            background: #fff;
+            position: absolute;
+            top: -110px;
+            left: -31px;
+            transform: rotateZ(-2deg);
+        }
+        &::before {
+            content: "";
+            height: 200px;
+            width: 120%;
+            background: #fff;
+            position: absolute;
+            bottom: -110px;
+            left: -31px;
+            transform: rotateZ(2deg);
+        }
+    }
+    .wrapper_advantage {
+        width: 100%;
+        position: relative;
+        padding-top: 100px;
+        overflow: hidden;
+        padding-bottom: 150px;
+        display: flex;
+        justify-content: center;
+    }
+    ul {
+        display: flex;
+        text-align: center;
+        flex-wrap: wrap;
+        max-width: 800px;
+        justify-content: center;
+        gap: 24px;
+        padding: 50px 0;
+        li {
+            span {
+                color: $color_1;
+            }
+            flex-basis: 48.5%;
+            background: #fff;
+            border-radius: 24px;
+            font-size: 22px;
+            font-family: $font-family_1;
+            text-align: left;
+            line-height: 28px;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            &:hover {
+                &::after {
+                    bottom: 6px;
+                    transition: bottom 0.5s ease-in-out;
+                }
+            }
+            &:after {
+                content: "Возможность проведения вебинаров, онлайн-тренингов и лекций с помощью инструментов для обучения";
+                position: absolute;
+                bottom: -150px;
+                left: 50%;
+                right: 0;
+                width: 95%;
+                background: #001d31;
+                transform: translateX(-50%);
+                color: #fff;
+                text-align: center;
+                padding: 10px;
+                border-radius: 16px;
+                font-size: 14px;
+                transition: bottom 0.5s ease-in-out;
+            }
+            // &.li1::after {
+            //      content: "Возможность проведения вебинаров, онлайн-тренингов и лекций с помощью инструментов для обучения";
+            // }
+            &:hover {
+                div {
+                    + div {
+                        filter: blur(4px);
+                        transition: filter 0.5s;
+                    }
+                }
+            }
+            div {
+                + div {
+                    filter: blur(0px);
+                    transition: filter 0.5s;
+                }
+            }
+        }
+    }
+    .li-label {
+        padding: 24px;
+    }
+    .li2 {
+        display: none;
+    }
+    @media (max-width: 712px) {
+        ul {
+            > li {
+                &:nth-child(2) {
+                    display: block;
+                    height: 268px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        ul li {
+            flex-basis: 100%;
+        }
+        .modile_li2 {
+            gap: 10px;
+        }
+    }
+
+    @media (min-width: 1900px) {
+        .br-desktop {
+            display: block;
+        }
+        ul {
+            display: flex;
+            text-align: center;
+            flex-wrap: wrap;
+            max-width: 1416px;
+            justify-content: center;
+            padding: 50px 0;
+            gap: 32px;
+            li {
+                background: #fff;
+                border-radius: 24px;
+                font-size: 22px;
+                font-family: $font-family_1;
+                text-align: left;
+                line-height: 28px;
+                font-weight: 600;
+                span {
+                    color: $color_1;
+                }
+                &::after {
+                    line-height: 28px;
+                }
+            }
+
+            .li1 {
+                flex-basis: calc(39.5% - 16px);
+            }
+            .li2 {
+                flex-basis: calc(59.5% - 16px);
+            }
+            .li3 {
+                flex-basis: calc(33% - 32px * 2 / 3);
+            }
+            .li4 {
+                flex-basis: calc(33% - 32px * 2 / 3);
+            }
+            .li5 {
+                flex-basis: calc(33% - 32px * 2 / 3);
+            }
+        }
+
+        .li-label {
+            padding: 32px;
+        }
+
+        #block_two {
+            &::after {
+                content: "";
+                height: 200px;
+                width: 120%;
+                background: #fff;
+                position: absolute;
+                top: -110px;
+                left: -31px;
+                transform: rotateZ(-2deg);
+            }
+            &::before {
+                content: "";
+                height: 200px;
+                width: 120%;
+                background: #fff;
+                position: absolute;
+                bottom: -185px;
+                left: -31px;
+                transform: rotateZ(2deg);
+            }
+        }
+
+        .li2 {
+            display: flex;
+        }
+    }
+
+    @media (min-width: 1900px) {
+        #block_two {
+            &::after {
+                height: 300px;
+                top: -88px;
+            }
+            .wrapper_advantage {
+                padding-top: 337px;
+                ul {
+                    gap: 24px;
+                    justify-content: space-between;
+                    li {
+                        height: 440px;
+                        font-size: 32px;
+                        line-height: 36px;
+                        .li-label {
+                            padding: 31px 32px 20px;
+                        }
+                    }
+                    .li1 {
+                        flex-basis: calc(42.5% - 25px);
+                    }
+                    .li2 {
+                        flex-basis: calc(58.5% - 14px);
+                        .li-label {
+                            img {
+                                width: 48%;
+                                margin-right: 14px;
+                            }
+                        }
+                        img {
+                            max-width: 94%;
+                        }
+                    }
+                    .li3 {
+                        flex-basis: calc(34% - 25px);
+                        img {
+                            height: 97%;
+                            margin-bottom: -7px;
+                            margin-left: 0px;
+                        }
+                    }
+                    .li4 {
+                        flex-basis: calc(25% - 19.3px);
+                        img {
+                            height: 94%;
+                            margin-left: -21px;
+                            margin-bottom: 0px;
+                            min-width: 109%;
+                        }
+                    }
+                    .li5 {
+                        flex-basis: calc(42% - 21px);
+                        img {
+                            height: 97%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+</style>

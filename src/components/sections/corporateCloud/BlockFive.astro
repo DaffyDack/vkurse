@@ -1,0 +1,138 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_five">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        <div class="wrapper_for_">
+            <div class="heading">Для крупных организаций</div>
+            <ul class="wrapper">
+                <li>
+                    <div class="title">Частное облако</div>
+                    <ul class="wrapper_discription">
+                        <li>
+                            Все серверы «ВКУРСЕ» находятся на территории РФ. Это
+                            передовые российские сертифицированные дата-центры
+                        </li>
+                        <li>
+                            Используются надежные механизмы защиты от DDoS-атак
+                        </li>
+                        <li>
+                            При разработке ПО «ВКУРСЕ» руководствуемся
+                            положениями ФСТЭК РФ и НКЦКИ по устранению
+                            критических уязвимостей
+                        </li>
+                        <li>
+                            Все предлагаемые решения и продукты соответствуют
+                            требованиям ФЗ-152 (УЗ-1) по уровню защищенности
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="title">Гибридное облако</div>
+                    <ul class="wrapper_discription">
+                        <li>
+                            «ВКУРСЕ» — имеет полную сертификацию для работы с
+                            госструктурами и бизнесом любого размера
+                        </li>
+                        <li>Реестр «Отечественного ПО»</li>
+                        <li>Реестр «Операторов персональных данных»</li>
+                        <li>Госрегистрация ПО “ВКУРСЕ”</li>
+                        <li>Реестр ИТ-компаний</li>
+                        <li>В каталоге продуктов-импортозаместителей АРПП</li>
+                        <li>Член ассоциации АРПП «Отечественный софт»</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </Container>
+</section>
+<style lang="scss">
+    $color_1: #53627a;
+    $color_2: #d0daeb;
+    $color_3: #fff;
+    $font-family_1: "Montserrat", sans-serif;
+    .wrapper {
+        font-family: $font-family_1;
+        text-align: center;
+        color: $color_3;
+    }
+    ul.wrapper {
+        > li {
+            .title {
+                font-size: 24px;
+                margin-bottom: 24px;
+            }
+            max-width: 504px;
+            min-height: 470px;
+            border-radius: 16px;
+            background: #000;
+            padding: 50px 24px;
+            position: relative;
+            li {
+                text-align: left;
+                font-size: 14px;
+                margin-bottom: 20px;
+                padding-left: 22px;
+                background: url(/images/mini_arrow.png) no-repeat left 0 top 50%;
+                background-size: 16px;
+            }
+            &:nth-child(1) {
+                background: #623CEA;
+                position: relative;
+                margin-bottom: 70px;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: -60px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    height: 100px;
+                    width: 162px;
+                    background: url(/images/corporateCloud/IconList1.png)
+                        no-repeat center;
+                    background-size: cover;
+                }
+            }
+            &:nth-child(2) {
+                background: #0076C4;
+                position: relative;
+                margin-bottom: 70px;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: -60px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    height: 100px;
+                    width: 162px;
+                    background: url(/images/corporateCloud/IconList2.png)
+                        no-repeat center;
+                    background-size: cover;
+                }
+            }
+        }
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-top: 60px;
+    }
+    .wrapper_for_ {
+        width: 100%;
+    }
+    .heading {
+        font-size: 36px;
+        font-family: $font-family_1;
+        text-align: center;
+        padding-bottom: 65px;
+    }
+
+    @media (max-width: 1070px) {
+        .wrapper_for_ {
+            > ul.wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+</style>

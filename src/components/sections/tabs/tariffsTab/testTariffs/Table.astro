@@ -1,0 +1,139 @@
+---
+const { options } = Astro.props;
+---
+
+<div class="flex flex-col">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-full py-2">
+            <div class="overflow-hidden">
+                <div class="discription">
+                    ВКУРСЕ «Classic Meetings PRO» – тарифная линейка на
+                    «облачную» подписку с личным кабинетом на saas.vkurse.ru.
+                    Клиенту предоставляется доступ к ЛК с правами
+                    "Администратора", в рамках которого он может проводить
+                    мероприятия в формате «Совещаний» (все участники мероприятия
+                    – равноправные с возможностью включать аудио и видео).
+                </div>
+                <table
+                    class="forMeeting min-w-full text-left text-sm font-light"
+                >
+                    <thead class="forMeeting border-b dark:border-neutral-500">
+                        <tr>
+                            {
+                                options.thead.map((item) => {
+                                    return (
+                                        <th scope="col" class="px-6 py-4">
+                                            {item}
+                                        </th>
+                                    );
+                                })
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            options.options.map((item) => {
+                                return (
+                                    <tr class="border-b dark:border-neutral-500">
+                                        {item.map((rows) => {
+                                            return (
+                                                <td class="px-6 py-4">
+                                                    {rows}
+                                                </td>
+                                            );
+                                        })}
+                                    </tr>
+                                );
+                            })
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // const form_main = document.querySelector(".forMeeting");
+    let tbody = document.querySelectorAll("tbody > tr:last-child td");
+    let tariffs = [
+        "WEB-50",
+        "WEB-100",
+        "WEB-200",
+        "WEB-300",
+        "WEB-500",
+        "WEB-1000",
+        "WEB-5000",
+        "OT-WEB-1000",
+        "OT-WEB-2000",
+        "OT-WEB-3000",
+        "OT-WEB-5000",
+        "OT-WEB-10000",
+    ];
+
+    const r = /\d+/;
+    for (let elem in tbody) {
+        if (tbody[elem].innerHTML !== undefined) {
+            if (tbody[elem].innerHTML.match(r)) {
+                let button = document.createElement("span");
+                button.className = "pay";
+                button.style.color = "#009373";
+                button.style.borderRadius = "8px";
+                button.style.background = "#EBFFFB";
+                button.style.padding = "5px 12px";
+                button.style.marginTop = "5px";
+                button.style.cursor = "pointer";
+                button.style.display = "block";
+                button.style.border = "2px solid #009373";
+
+                button.innerHTML = "Купить";
+                tbody[elem].appendChild(button);
+            }
+        }
+    }
+    let payBtn = document.querySelectorAll(".pay");
+    for (const key in payBtn) {
+        if (payBtn[key].innerHTML !== undefined) {
+            payBtn[key].addEventListener("click", (e) => {
+                localStorage.setItem("tariff", tariffs[key]);
+                window.location.href = "/registrationApplication";
+            });
+        }
+    }
+</script>
+
+<style lang="scss">
+    .discription {
+        font-size: 16px;
+        font-weight: 400;
+        color: #1C2129;
+        background: #fff;
+        border-radius: 10px 10px 0 0;
+        padding: 16px;
+    }
+    table {
+        font-family: "Montserrat", sans-serif;
+        border: 2px solid #f3f6fa;
+        tr {
+            th {
+                text-align: center;
+                background: #fff;
+                border: 2px solid #f3f6fa;
+                padding: 20px;
+                &:first-child {
+                    max-width: 300px;
+                    text-align: left;
+                }
+            }
+            td {
+                text-align: center;
+                border: 2px solid #f3f6fa;
+                background: #fff;
+                padding: 12px;
+                &:first-child {
+                    max-width: 300px;
+                    text-align: left;
+                }
+            }
+        }
+    }
+</style>

@@ -1,0 +1,155 @@
+{
+    "columns": [
+        {
+            "id": "GroupTariff-1",
+            "name": "one",
+            "label": "Для встреч"
+        },
+        {
+            "id": "GroupTariff-2",
+            "name": "two",
+            "label": "Для вебинаров"
+        },
+        {
+            "id": "GroupTariff-3",
+            "name": "three",
+            "label": "Для организаций"
+        },
+        {
+            "id": "GroupTariff-4",
+            "name": "three",
+            "label": "Для организаций"
+        },
+        {
+            "id": "GroupTariff-5",
+            "name": "three",
+            "label": "Для организаций"
+        },
+        {
+            "id": "GroupTariff-6",
+            "name": "three",
+            "label": "Для организаций"
+        }
+    ],
+    "rows": [
+        {
+            "id": "Content-1",
+            "text": "text6",
+            "tariff": [
+                {
+                    "name": "free1",
+                    "alias": "webinars-classic-free",
+                    "line": "Classic Meetings PRO",
+                    "line_id": 1,
+                    "price": 0,
+                    "thead": ["Параметры подписки", "meet-freee", "Last", "Handle"],
+                    "options": [
+                        [
+                            "name","type","value","info"
+                        ],
+                        [
+                            "name","type","value","info"
+                        ]
+                    ]
+                },
+                {
+                    "name": "free1",
+                    "alias": "webinars-classic-free",
+                    "line": "Classic Meetings NO PRO",
+                    "line_id": 2,
+                    "price": 0,
+                    "thead": ["Параметры подписки", "meet-freee", "Last", "Handle"],
+                    "options": [
+                        [
+                            "name","type","value","info"
+                        ]
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "Content-2",
+            "text": "text6",
+            "tariff": [
+                {
+                    "name": "free2",
+                    "alias": "webinars-classic-free",
+                    "line": "PRO",
+                    "line_id": 1,
+                    "price": 0,
+                    "thead": ["Параметры подписки", "meet-freee", "Last", "Handle"],
+                    "options": [
+                        [
+                            "name","type","value","info"
+                        ],
+                        [
+                            "name","type","value","info"
+                        ]
+                    ]
+                },
+                {
+                    "name": "free2",
+                    "alias": "webinars-classic-free",
+                    "line": "NO PRO",
+                    "line_id": 2,
+                    "price": 0,
+                    "thead": ["Параметры подписки", "meet-freee", "Last", "Handle"],
+                    "options": [
+                        [
+                            "name","type","value","info"
+                        ]
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "Content-3",
+            "text": "text6",
+            "tariff": [
+                {
+                    "name": "free3",
+                    "alias": "webinars-classic-free",
+                    "line": "PRO",
+                    "line_id": 1,
+                    "price": 0,
+                    "thead": ["Параметры подписки", "meet-freee", "Last", "Handle"],
+                    "options": [
+                        [
+                            "name","type","value","info"
+                        ],
+                        [
+                            "name","type","value","info"
+                        ]
+                    ]
+                },
+                {
+                    "name": "free3",
+                    "alias": "webinars-classic-free",
+                    "line": "NO PRO",
+                    "line_id": 2,
+                    "price": 0,
+                    "thead": ["Параметры подписки", "meet-freee", "Last", "Handle"],
+                    "options": [
+                        [
+                            "name","type","value","info"
+                        ]
+                    ]
+                },
+                {
+                    "name": "free3",
+                    "alias": "webinars-classic-free",
+                    "line": "ULTRA NO PRO",
+                    "line_id": 3,
+                    "price": 0,
+                    "thead": ["Параметры подписки", "meet-freee", "Last", "Handle"],
+                    "options": [
+                        [
+                            "name1","type1","value1","info1"
+                        ]
+                    ]
+                }
+
+            ]
+        }
+    ]
+}

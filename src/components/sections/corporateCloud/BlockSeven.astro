@@ -1,0 +1,117 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_seven">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        <div class="wrapper">
+            <div class="wrap_mini_slider">
+                <div class="heading">
+                    Примеры <br /> реализованных <br /> проектов
+                </div>
+                <div class="slider_for_adaptive" id="slider_for_adaptive">
+                    <div class="for_scroll">
+                        <div class="swiper-slide_adaptive">
+                            <div class="block"></div>
+                            <div class="wrap_block">
+                                <div class="title">Кейс со школой</div>
+                                <div class="description">
+                                    Просмотр, интерактив, статистика, авторизация
+                                    зрителей, закрытые трансляции, хранение записи,
+                                    стабильность и безопасность
+                                </div>
+                                <button>Скачать кейс</button>
+                            </div>
+                        </div>
+                        <div class="swiper-slide_adaptive">
+                            <div class="block"></div>
+                            <div class="wrap_block">
+                                <div class="title">Кейс со школой</div>
+                                <div class="description">
+                                    Просмотр, интерактив, статистика, авторизация
+                                    зрителей, закрытые трансляции, хранение записи,
+                                    стабильность и безопасность
+                                </div>
+                                <button>Скачать кейс</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
+
+<style lang="scss">
+    .wrapper {
+        width: 100%;
+    }
+    .slider_for_adaptive {
+        width: 100%;
+        overflow-y: overlay;
+        .for_scroll {
+            display: flex;
+            flex-direction: row;
+            .swiper-slide_adaptive {
+                text-align: left;
+                font-size: 18px;
+                background: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                border-radius: 24px;
+                overflow: hidden;
+                border: 2px solid #D0DAEB;
+                &:first-child {
+                    margin-right: 20px;
+                }
+            }
+            .block {
+                height: 264px;
+                width: 100%;
+                background: url(/images/corporateCloud/Content11.png) no-repeat bottom 0 left 0
+                    #001d31;
+                background-size: contain;
+            }
+            .wrap_block {
+                padding: 32px;
+            }
+            .title {
+                font-family: "Montserrat", sans-serif;
+                font-size: 22px;
+                color: #53627A;
+                margin-bottom: 16px;
+            }
+            .description {
+                color: #53627a;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 20px;
+            }
+            button {
+                width: 156px;
+                height: 44px;
+                background: url(/images/Arrow.png) no-repeat top 50% right 18px
+                    #009373;
+                background-size: 11px;
+                color: #fff;
+                border-radius: 16px;
+                text-align: left;
+                padding-left: 20px;
+                margin-top: 24px;
+                font-size: 14px;
+                &:hover {
+                    background: url(/images/Arrow.png) no-repeat top 50% right
+                        18px #00765c;
+                    background-size: 11px;
+                }
+            }
+        }
+    }
+    @media (max-width: 700px) {
+        .for_scroll {
+            width: 1000px;
+        }
+    }
+</style>

@@ -1,0 +1,327 @@
+---
+const PUBLIC_API_URL = import.meta.env.PUBLIC_API_URL;
+---
+
+<div
+  data-te-modal-init
+  class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-modal="true"
+  role="dialog"
+>
+  <div
+    data-te-modal-dialog-ref
+    class="relative flex min-h-[calc(100%-1rem)] w-[460px] translate-y-[-50px] items-center opacity-0 min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)]"
+  >
+    <button
+      type="button"
+      class="bg-[#009373] p-1 fixed right-7 top-3 box-content rounded-none border-none hover:no-underline focus:opacity-100 focus:shadow-none focus:outline-none"
+      data-te-modal-dismiss
+      aria-label="Close"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="white"
+        class="w-8 h-8"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <div class="modal__inner-wrapper">
+      <div class="flex flex-col gap-3 text-center">
+        <!--Modal header-->
+        <h5 class="modal__title" id="exampleModalCenterTitle">
+          Покажем все возможности платформы ВКурсе
+        </h5>
+        <h6 class="modal__description" id="exampleModalCenterTitle">
+          Наши менеджеры свяжутся с Вами, согласуют время для онлайн-встречи, на
+          которой продемонстрируют весь функционал платформы.
+        </h6>
+      </div>
+
+      <form id="formDemonstration" class="text-[#53627A]" action="#" novalidate>
+        <!--Modal body-->
+        <div class="relative p-4">
+          <div
+            id="name_wrapper"
+            class="relative mb-6 h-14 flex items-center rounded-lg border-[#D0DAEB] border-2"
+            data-te-input-wrapper-init
+            data-te-class-notch-trailing-normal="border-0"
+            data-te-class-notch-leading-normal="border-0"
+            data-te-class-notch-middle-normal="border-0"
+          >
+            <input
+              type="text"
+              class="input peer block min-h-[auto] w-full rounded-lg bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+              id="name"
+              aria-describedby="emailHelp124"
+            />
+            <label
+              for="name"
+              class="bg-white pointer-events-none absolute left-3 top-[14px] mb-0 max-w-[90%] origin-[0_0] truncate leading-[1.6] text-neutral-[$Text/Disable] font-normal transition-all duration-200 ease-out peer-focus:-translate-y-[25px] peer-focus:scale-[0.8] peer-data-[te-input-state-active]:-translate-y-[25px] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none"
+              >Имя
+            </label>
+          </div>
+          <div
+            id="lastname_wrapper"
+            class="relative mb-6 h-14 flex items-center rounded-lg border-[#D0DAEB] border-2"
+            data-te-input-wrapper-init
+            data-te-class-notch-trailing-normal="border-0"
+            data-te-class-notch-leading-normal="border-0"
+            data-te-class-notch-middle-normal="border-0"
+          >
+            <input
+              type="text"
+              class="input peer block min-h-[auto] w-full rounded-lg bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+              id="lastname"
+              aria-describedby="emailHelp124"
+            />
+            <label
+              for="lastname"
+              class="bg-white pointer-events-none absolute left-3 top-[14px] mb-0 max-w-[90%] origin-[0_0] truncate leading-[1.6] text-neutral-[$Text/Disable] font-normal transition-all duration-200 ease-out peer-focus:-translate-y-[25px] peer-focus:scale-[0.8] peer-data-[te-input-state-active]:-translate-y-[25px] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none"
+              >Фамилия
+            </label>
+          </div>
+          <div
+            id="company_wrapper"
+            class="relative mb-6 h-14 flex items-center rounded-lg border-[#D0DAEB] border-2"
+            data-te-input-wrapper-init
+            data-te-class-notch-trailing-normal="border-0"
+            data-te-class-notch-leading-normal="border-0"
+            data-te-class-notch-middle-normal="border-0"
+          >
+            <input
+              type="text"
+              class="input peer block min-h-[auto] w-full rounded-lg bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+              id="company"
+              aria-describedby="emailHelp124"
+            />
+            <label
+              for="company"
+              class="bg-white pointer-events-none absolute left-3 top-[14px] mb-0 max-w-[90%] origin-[0_0] truncate leading-[1.6] text-neutral-[$Text/Disable] font-normal transition-all duration-200 ease-out peer-focus:-translate-y-[25px] peer-focus:scale-[0.8] peer-data-[te-input-state-active]:-translate-y-[25px] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none"
+              >Компания
+            </label>
+          </div>
+          <div
+            id="email_wrapper"
+            class="relative mb-6 h-14 flex items-center rounded-lg border-[#D0DAEB] border-2"
+            data-te-input-wrapper-init
+            data-te-class-notch-trailing-normal="border-0"
+            data-te-class-notch-leading-normal="border-0"
+            data-te-class-notch-middle-normal="border-0"
+          >
+            <input
+              type="email"
+              id="email"
+              class="input peer block min-h-[auto] w-full rounded-lg bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+              aria-describedby="emailHelp124"
+            />
+            <label
+              for="email"
+              class="bg-white pointer-events-none absolute left-3 top-[14px] mb-0 max-w-[90%] origin-[0_0] truncate leading-[1.6] text-neutral-[$Text/Disable] font-normal transition-all duration-200 ease-out peer-focus:-translate-y-[25px] peer-focus:scale-[0.8] peer-data-[te-input-state-active]:-translate-y-[25px] peer[data-te-input-state-active].peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none"
+              >Email
+            </label>
+          </div>
+          <div
+            id="phone_wrapper"
+            class="relative mb-6 h-14 flex items-center rounded-lg border-[#D0DAEB] border-2"
+            data-te-input-wrapper-init
+            data-te-class-notch-trailing-normal="border-0"
+            data-te-class-notch-leading-normal="border-0"
+            data-te-class-notch-middle-normal="border-0"
+          >
+            <input
+              type="text"
+              class="input peer block min-h-[auto] w-full rounded-lg bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+              id="phone"
+              aria-describedby="emailHelp124"
+            />
+            <label
+              for="phone"
+              class="bg-white pointer-events-none absolute left-3 top-[14px] mb-0 max-w-[90%] origin-[0_0] truncate leading-[1.6] text-neutral-[$Text/Disable] font-normal transition-all duration-200 ease-out peer-focus:-translate-y-[25px] peer-focus:scale-[0.8] peer-data-[te-input-state-active]:-translate-y-[25px] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none"
+              >Телефон
+            </label>
+          </div>
+          <select
+            id="count"
+            class="font-normal"
+            data-te-select-init
+            data-te-select-placeholder="Сколько участников планируется в мероприятии?"
+            data-te-class-notch-trailing-normal="border-0"
+            data-te-class-notch-leading-normal="border-0"
+            data-te-class-notch-middle-normal="border-0"
+            data-te-class-select-arrow="absolute right-3 top-4 text-[0.8rem] cursor-pointer group-data-[te-was-validated]/validation:peer-valid:text-green-600 group-data-[te-was-validated]/validation:peer-invalid:text-[rgb(220,76,100)] w-5 h-5"
+            data-te-class-form-outline="relative mb-6 h-14 flex items-center rounded-lg border-[#D0DAEB] border-2"
+            data-te-class-select-input="font-normal text-neutral-[$Text/Disable] peer block min-h-[auto] w-[90%] rounded border-0 bg-transparent outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 cursor-pointer data-[te-input-disabled]:bg-[#e9ecef] data-[te-input-disabled]:cursor-default group-data-[te-was-validated]/validation:mb-4"
+            data-te-class-select-label="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate text-gray-500 transition-all duration-200 ease-out peer-focus:scale-[0.8] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none data-[te-input-state-active]:scale-[0.8]"
+          >
+            <option value="1-10">1-10 чел.</option>
+            <option value="11-100">11-100 чел.</option>
+            <option value="101-1000">101-1000 чел.</option>
+            <option value="1000+">1000+ чел.</option>
+          </select>
+          <div
+            id="agreement_wrapper"
+            class="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]"
+          >
+            <input
+              class="relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:border-[#009373] checked:bg-[#009373] checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
+              type="checkbox"
+              id="agreement"
+            />
+            <label
+              class="inline-block pl-[0.15rem] hover:cursor-pointer font-normal"
+              for="agreement"
+            >
+              Соглашаюсь с <a
+                href="https://b24.vkurse.ru/~oMDOO" target="_blank"
+                class="text-[#009373] underline"
+                >политикой обработки персональных данных</a
+              >
+            </label>
+          </div>
+        </div>
+        <!--Modal footer-->
+        <div
+          class="flex items-center justify-center rounded-b-md border-t-2 border-neutral-100 border-opacity-100 dark:border-opacity-50"
+        >
+          <button type="submit" class="submit-button">Отправить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script >
+
+  import { Modal, Ripple, Select, initTE } from "tw-elements";
+
+  initTE({ Modal, Ripple, Select });
+
+  const form_main = document.getElementById("formDemonstration"),
+    emailInput = form_main.querySelector("#email"),
+    nameInput = form_main.querySelector("#name"),
+    companyInput = form_main.querySelector("#company"),
+    participantsInput = form_main.querySelector("#count"),
+    agreementCheckbox = form_main.querySelector("#agreement"),
+    agreementWrapper = form_main.querySelector("#agreement_wrapper"),
+    emailWrapper = form_main.querySelector("#email_wrapper"),
+    infoError = form_main.querySelector(".info_message_error");
+  // infoSuccess = form_main.querySelector(".info_message_success"),
+  // loader = form_main.querySelector(".formLoader");
+
+  const modal = new Modal(document.getElementById("exampleModal"));
+
+  emailWrapper.classList.remove("invalid");
+  agreementWrapper.classList.remove("invalid");
+
+  function checkEmail() {
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!emailInput.value.match(emailPattern)) {
+      emailWrapper.classList.add("invalid");
+      return false;
+    } else {
+      emailWrapper.classList.remove("invalid");
+      return true;
+    }
+  }
+
+  function checkAgreement() {
+    if (!agreementCheckbox.checked) {
+      agreementWrapper.classList.add("invalid");
+      return false;
+    } else {
+      agreementWrapper.classList.remove("invalid");
+      return true;
+    }
+  }
+  form_main.addEventListener("submit", (e) => {
+    e.preventDefault();
+    checkEmail();
+    checkAgreement();
+    emailInput.addEventListener("keyup", checkEmail);
+    agreementCheckbox.addEventListener("change", checkAgreement);
+    if (checkEmail() && checkAgreement()) {
+      // loader.classList.add("visible");
+
+      fetch(import.meta.env.PUBLIC_API_URL + "v1/form/8", {
+        method: "POST",
+        body: JSON.stringify({
+          email: emailInput.value,
+          name: nameInput.value,
+          name_company: companyInput.value,
+          quantity: participantsInput.value,
+          url: window.location.href,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          // loader.classList.remove("visible");
+          emailInput.value = "";
+          nameInput.value = "";
+          companyInput.value = "";
+          participantsInput.value = "";
+          // infoSuccess.classList.remove("animate-[fade-out_0.3s_both]");
+          // infoSuccess.removeAttribute("data-te-toast-hide");
+          // infoSuccess.setAttribute("data-te-toast-show", true);
+          modal.hide().then(() => modal.dispose());
+        })
+        .catch((error) => {
+          // loader.classList.remove("visible");
+          infoError.classList.remove("animate-[fade-out_0.3s_both]");
+          infoError.removeAttribute("data-te-toast-hide");
+          infoError.setAttribute("data-te-toast-show", true);
+          console.log("что то пошло не так", error);
+        });
+    } else {
+      console.log("не отправляем");
+    }
+  });
+</script>
+
+<style lang="scss">
+  .modal {
+    &__title {
+      font-size: 30px;
+      line-height: 1.2;
+      font-weight: 600;
+    }
+
+    &__description {
+      font-weight: 300;
+    }
+
+    &__inner-wrapper {
+      background-color: #fff;
+      padding: 40px 45px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .submit-button {
+    padding: 12px 16px;
+    width: 100%;
+    border-radius: 12px;
+    background: var(--BG-Main-Primary, #009373);
+    color: #fff;
+  }
+  .invalid {
+    border: 2px solid #d93025;
+
+    .error {
+      display: flex !important;
+    }
+  }
+</style>

@@ -1,0 +1,125 @@
+<section id="block_six">
+    <script>
+        import Swiper from "swiper";
+        import { Navigation, Pagination } from "swiper/modules";
+        import "swiper/css";
+        import "swiper/css/navigation";
+        import "swiper/css/pagination";
+        var swiper = new Swiper(".swiper", {
+            modules: [Navigation, Pagination],
+            slidesPerView: 3.5,
+            spaceBetween: 30,
+            // pagination: {
+            //     el: ".swiper-pagination",
+            //     clickable: true,
+            // },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            scrollbar: {
+                el: ".swiper-scrollbar",
+            }
+        });
+    </script>
+    <div class="wrapper_slider w-[1080px]">
+        <div class="heading">Кто наши клиенты</div>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="block">Крупные компании и холдинги</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="block">Среднего размера бизнес</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="block">Малый и микро- бизнес</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="block">Государственные учреждения</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="block">Высшие учебные заведения</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="block">Фрилансеры и преподаватели</div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-scrollbar"></div>
+        </div>
+    </div>
+</section>
+<style lang="scss">
+    $colors: #001d31, #009373, #623cea, #cc2936, #9e225a, #d36135;
+    swiper-container::part(bullet-active) {
+        background-color: red;
+    }
+    :root {
+        --swiper-theme-color: #fff;
+    }
+    #block_six {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+    .wrapper_slider {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .content-slide {
+    }
+    .heading {
+        font-size: 36px;
+        font-family: "Montserrat", sans-serif;
+        text-align: left;
+        margin-bottom: 65px;
+        margin-top: 40px;
+    }
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        @for $i from 1 through length($colors) {
+            &:nth-child(#{$i}) {
+                > .block {
+                    background: url(/images/Content#{$i}#{$i}.png)
+                        no-repeat
+                        bottom
+                        0
+                        left
+                        0
+                        nth($colors, $i);
+                    background-size: contain;
+                }
+            }
+        }
+        > .block {
+            width: 300px;
+            height: 330px;
+            border-radius: 24px;
+            color: #fff;
+            text-align: left;
+            padding: 24px;
+        }
+    }
+</style>

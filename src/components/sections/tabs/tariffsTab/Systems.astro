@@ -1,0 +1,50 @@
+<div class="wrapper_systems">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<style lang="scss">
+    .wrapper_systems {
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-content: space-around;
+        align-items: center;
+        background: #fff;
+        border-radius: 0 0 10px 10px;
+    }
+    .wrapper_systems ul {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .wrapper_systems ul li {
+        width: 24px;
+        height: 24px;
+    }
+    .wrapper_systems ul li {
+        @for $i from 1 through 12 {
+            &:nth-child(#{$i}) {
+                background: url(/images/browser#{$i}.png)
+                    no-repeat
+                    top
+                    0
+                    left
+                    0;
+                background-size: contain;
+            }
+        }
+    }
+</style>

@@ -1,0 +1,162 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_six">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        <div class="wrap_scrol">
+            <div class="heading">Дополнительные модули</div>
+            <div class="wrapper_modul" id="wrapper_modul">
+                <div class="wrap">
+                    <div>
+                        <ul>
+                            <li>
+                                Просмотровый монитор 17-21″ или 43″
+                                <p>
+                                    В комплекте с оборудованием для подключения
+                                    до 30 метров от аппаратной
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>Звукоусиление на 30 или 70 человек</li>
+                            <li>
+                                Радиомикрофон <span
+                                    >(ручной/петличка/оголовье)</span
+                                >
+                            </li>
+                            <li>Ухо связное для спикера</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>Дополнительный кликер</li>
+                            <li>
+                                Дополнительный ноутбук для презентации или
+                                подсмотра
+                            </li>
+                            <li>Дополнительная камера PTZ</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>Стрим на дополнительные 1-2 соцсети</li>
+                            <li>Мультикамерная запись на 2 или 3 камеры</li>
+                            <li>Редактор на ухо</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>Плейаут для роликов и графики</li>
+                            <li>Создание графпакета <span>(простой)</span></li>
+                            <li>
+                                Создание графпакета <span>(расширенный)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>Монтаж видео</li>
+                            <li>
+                                Микрофонный оператор <span>(одна смена)</span>
+                            </li>
+                            <li>Инженер <span>(одна смена)</span></li>
+                            <li>
+                                Технический директор <span>(одна смена)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
+<style lang="scss">
+    #block_six {
+        background: #f3f6fa;
+        position: relative;
+        margin-bottom: 100px;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -70px;
+            left: 0;
+            width: 120%;
+            height: 100px;
+            background: #f3f6fa;
+            transform: rotateZ(2deg);
+            border-radius: 30%;
+        }
+    }
+    .wrap_scrol {
+        background: #f3f6fa;
+        position: relative;
+        overflow: hidden;
+    }
+    .heading {
+        font-size: 36px;
+        font-family: "Montserrat", sans-serif;
+        text-align: center;
+        color: #1c2129;
+        margin-bottom: 24px;
+        margin-top: 24px;
+    }
+    .wrapper_modul {
+        width: 100%;
+        background: #f3f6fa;
+        position: relative;
+        padding-bottom: 55px;
+        overflow: hidden;
+
+        .wrap {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 24px;
+            > div {
+                flex: 1 1 328px;
+                height: 408px;
+                max-width: 328px;
+                background: #fff;
+                border-radius: 24px;
+                padding: 24px;
+                @for $i from 1 through 6 {
+                    &:nth-child(#{$i}) {
+                        background: url(/images/onlineBroadcasts/modul#{$i}.png)
+                            no-repeat
+                            left
+                            bottom
+                            #fff;
+                        background-size: contain;
+                    }
+                }
+                ul > li {
+                    padding-left: 36px;
+                    background: url(/images/onlineBroadcasts/check.png)
+                        no-repeat left top;
+                    background-size: 24px;
+                    font-size: 16px;
+                    padding-bottom: 20px;
+                    p {
+                        color: #53627a;
+                        font-size: 12px;
+                    }
+                    span {
+                        color: #53627a;
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 750px) {
+        .wrapper_modul {
+            overflow-y: overlay;
+            .wrap {
+                width: 2300px;
+                justify-content: space-around;
+            }
+        }
+    }
+</style>

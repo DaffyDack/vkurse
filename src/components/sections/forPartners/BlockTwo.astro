@@ -1,0 +1,102 @@
+---
+import Container from "../../shared/Container.astro";
+let info = {
+  title: [
+    { title: "ГОССЕКТОР", description: "Импортозамещение в полный рост" },
+    { title: "ТЭК и ТЯЖПРОМ", description: "Оптимизация процессов" },
+    { title: "ФИНАНСЫ", description: "Безопасные коммуникации" },
+    {
+      title: "ДРУГИЕ СФЕРЫ",
+      description: "Ритейл, образование, транспорт"
+    }
+  ]
+};
+---
+
+<section id="block_two">
+  <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+    <div class="wrapper_">
+      <div class="heading">
+        Проекты и ключевые отрасли, <br /> с которыми мы работаем
+      </div>
+      <div class="for_slider_wrap_partner" id="for_slider_wrap_partner">
+        <div>
+          <ul>
+            {
+              info.title.map((item) => {
+                return (
+                  <li>
+                    <div class="title">{item.title}</div>
+                    <div class="description">{item.description}</div>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+<style lang="scss">
+  @media (min-width: 1250px) {
+    .for_slider_wrap_partner {
+      > div {
+        width: 100% !important;
+        ul {
+          display: flex;
+          justify-content: space-between !important;
+        }
+      }
+    }
+  }
+  .wrapper_ {
+    width: 100%;
+    margin-bottom: 100px;
+    .heading {
+      font-size: 36px;
+      font-family: "Montserrat", sans-serif;
+      text-align: left;
+      margin-bottom: 65px;
+      margin-top: 40px;
+    }
+    .for_slider_wrap_partner {
+      overflow-y: overlay;
+      width: 100%;
+      > div {
+        width: 1040px;
+        ul {
+          display: flex;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+          // width: 1070px;
+          > li {
+            flex-basis: 250px;
+            border-radius: 16px;
+            background: #fafbfc;
+            min-height: 248px;
+            border: 1px solid #000;
+            padding: 14px;
+            @for $i from 1 through 4 {
+              &:nth-child(#{$i}) {
+                background: url(/images/forPartners/Content#{$i}.png)
+                  no-repeat
+                  right
+                  bottom;
+                background-size: 150px;
+              }
+            }
+            .title {
+              font-size: 22px;
+              font-family: "Montserrat", sans-serif;
+              margin-bottom: 16px;
+            }
+            .description {
+              color: #53627a;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

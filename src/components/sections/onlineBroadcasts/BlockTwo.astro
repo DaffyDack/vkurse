@@ -1,0 +1,117 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_two">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        <div class="wrapper_for_ mb-[64px] mt-[64px]">
+            <ul class="wrapper">
+                <li>
+                    <div class="title">Онлайн- <br> мероприятия</div>
+                    <div class="pod_title">
+                        Эффективная и выгодная замена оффлайн-мероприятиям. Только онлайн участники.
+                    </div>
+                </li>
+                <li>
+                    <div class="title">Гибридные <br> мероприятия</div>
+                    <div class="pod_title">
+                        Увеличивайте охват целевой аудитории. Онлайн участники + зрители в зале, где проходит мероприятие
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </Container>
+</section>
+<style lang="scss">
+    $color_1: #53627a;
+    $color_3: #fff;
+    $font-family_1: "Montserrat", sans-serif;
+    #block_two {
+        margin-bottom: 120px;
+        margin-top: 120px;
+    }
+    .fire_text {
+        text-align: left;
+        font-size: 18px;
+        padding-left: 32px;
+        background: url(/images/fire.png) no-repeat left 0 top 50%;
+        background-size: 16px;
+        margin-bottom: 20px;
+    }
+    .pod_title {
+        padding: 16px 0 24px 0;
+        color: #53627A;
+    }
+    .wrapper {
+        text-align: center;
+    }
+    ul.wrapper {
+        > li {
+            .title {
+                font-family: $font-family_1;
+                font-size: 24px;
+                line-height: 32px;
+            }
+            width: 328px;
+            border-radius: 16px;
+            background: #000;
+            padding: 50px 24px 20px;
+            position: relative;
+            &:nth-child(1) {
+                background: #F3F6FA;
+                position: relative;
+                margin-right: 12px;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: -60px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    height: 100px;
+                    width: 162px;
+                    background: url(/images/onlineBroadcasts/Frame_left.png)
+                        no-repeat center;
+                    background-size: cover;
+                }
+            }
+            &:nth-child(2) {
+                background: #F3F6FA;
+                position: relative;
+                margin-left: 12px;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: -60px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    height: 100px;
+                    width: 162px;
+                    background: url(/images/onlineBroadcasts/Frame_right.png)
+                        no-repeat center;
+                    background-size: cover;
+                }
+            }
+        }
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 60px;
+    }
+    .wrapper_for_ {
+        width: 100%;
+    }
+    @media (max-width: 600px) {
+        .wrapper_for_ {
+            .wrapper {
+                flex-direction: column;
+                align-items: center;
+                margin: 0;
+                li {
+                    margin: 0;
+                    margin-top: 100px;
+                }
+            }
+        }
+    }
+</style>

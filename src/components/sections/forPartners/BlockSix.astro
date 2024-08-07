@@ -1,0 +1,121 @@
+---
+import Container from "../../shared/Container.astro";
+const questions = [
+    "Оставьте заявку",
+    "Подпишите NDA и партнерское соглашение",
+    "Пройдите обучение",
+    "Получите выгоды и ресурсы",
+    "Разместите информацию о партнерстве",
+    "Начинайте продавать",
+];
+---
+
+<section id="block_six">
+    <Container
+        className="flex flex-col midmd:flex-row gap-10 lg:gap-12 mb-[104px]"
+    >
+        <div class="wrapper_questions">
+            <div class="heading">Кто уже использует платформу</div>
+            <ul>
+                {
+                    questions.map((item, i) => {
+                        return (
+                            <li>
+                                <div>
+                                    <span>{i + 1}.</span>
+                                    {item}
+                                </div>
+                            </li>
+                        );
+                    })
+                }
+            </ul>
+        </div>
+    </Container>
+</section>
+<style lang="scss">
+    #block_six {
+        background: #f3f6fa;
+        position: relative;
+        &::after {
+            content: "";
+            width: 120%;
+            height: 100px;
+            position: absolute;
+            top: -51px;
+            left: 50%;
+            background: #fff;
+            transform: translateX(-50%) rotate(2deg);
+        }
+        &::before {
+            content: "";
+            width: 120%;
+            height: 100px;
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            background: #fff;
+            transform: translateX(-50%) rotate(-2deg);
+            z-index: 1;
+        }
+        .wrapper_questions {
+            background: #f3f6fa;
+            width: 100%;
+            padding: 50px 0 100px;
+            overflow: hidden;
+            position: relative;
+            .heading {
+                font-size: 36px;
+                font-family: "Montserrat", sans-serif;
+                text-align: left;
+                color: #1c2129;
+                margin-bottom: 24px;
+                margin-top: 24px;
+                text-align: left;
+            }
+            > ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                gap: 24px;
+                > li {
+                    margin-bottom: 20px;
+                    height: 400px;
+                    border-radius: 24px;
+                    padding: 20px;
+                    font-size: 20px;
+                    font-family: "Montserrat", sans-serif;
+                    background: #cccccc54;
+                    flex-basis: 328px;
+                    span {
+                        color: #0093f5;
+                        margin-right: 10px;
+                    }
+                    @for $i from 1 through 6 {
+                        &:nth-child(#{$i}) {
+                            background: url(/images/forPartners/PartnerContent#{$i}.png)
+                                no-repeat
+                                right
+                                bottom
+                                #fff;
+                            background-size: contain;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 1079px) {
+        .wrapper_questions {
+            ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                li {
+                    width: 308px;
+                    flex-basis: auto !important;
+                }
+            }
+        }
+    }
+</style>

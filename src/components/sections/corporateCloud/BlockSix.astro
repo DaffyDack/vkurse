@@ -1,0 +1,151 @@
+---
+import Container from "../../shared/Container.astro";
+import { TARIFS } from "./config.json";
+import TariffModal from "../../modals/TariffModal.astro";
+---
+
+<section id="block_six
+">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        <div class="wrapper_tarifs">
+            <div class="heading">Линейки тарифов</div>
+            <div class="wrap">
+                {
+                    TARIFS.map((item) => {
+                        return (
+                            <div>
+                                <p class="name">{item.name}</p>
+                                <ul>
+                                    {item.list.map((prod) => {
+                                        return <li>{prod}</li>;
+                                    })}
+                                </ul>
+                                <div class="price">
+                                    <p>от</p>
+                                    {item.price}
+                                    <p>в месяц</p>
+                                </div>
+                                <button 
+                                    data-te-toggle="modal"
+                                    data-te-target="#exampleModal"
+                                >
+                                    {item.button}
+                                </button>
+                            </div>
+                        );
+                    })
+                }
+            </div>
+        </div>
+    </Container>
+    <TariffModal />
+</section>
+<style lang="scss">
+    $font-family_1: "Montserrat", sans-serif;
+    .wrapper_tarifs {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        .heading {
+            font-size: 36px;
+            font-family: "Montserrat", sans-serif;
+            text-align: left;
+            color: #1c2129;
+            margin-bottom: 24px;
+            margin-top: 24px;
+        }
+        .title {
+            text-align: center;
+            font-size: 22px;
+            span {
+                color: #0093f5;
+            }
+        }
+        .wrap {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            flex-direction: row;
+            padding-bottom: 30px;
+            > div {
+                border-radius: 24px;
+                text-align: center;
+                padding: 24px;
+                background: #fff;
+                flex: 1 1 328px;
+                margin: 12px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                min-height: 490px;
+                border: 2px solid #D0DAEB;
+                .name {
+                    font-size: 22px;
+                    padding-bottom: 24px;
+                    font-family: "Montserrat", sans-serif;
+                    color: #53627A;
+                }
+                button {
+                    width: 100%;
+                    padding: 12px;
+                    border-radius: 12px;
+                    color: #009373;
+                    background: #ebfffb;
+                    border: 2px solid #009373;
+                    &:hover {
+                        color: #00765c;
+                    }
+                }
+                .price {
+                    font-size: 18px;
+                    line-height: 28px;
+                    margin-bottom: 16px;
+                    flex: 2;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-end;
+                    p {
+                        line-height: 24px;
+                    }
+                }
+                ul > li {
+                    text-align: left;
+                    color: #53627a;
+                    margin-bottom: 20px;
+                    padding-left: 30px;
+                    background: url(/images/onlineBroadcasts/check.png)
+                        no-repeat top 50% left;
+                    background-size: 25px;
+                    font-weight: 400;
+                }
+                &:nth-child(2) {
+                    border: 2px solid #009373;
+                    button {
+                        color: #fff;
+                        background: #009373;
+                        border: 2px solid #009373;
+                        &:hover {
+                            background: #00765c;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 990px) {
+        .wrapper_tarifs {
+            .wrap {
+                flex-direction: column;
+                align-items: center;
+                div {
+                    max-width: 336px;
+                }
+            }
+            .title {
+                font-size: 16px;
+            }
+        }
+    }
+</style>

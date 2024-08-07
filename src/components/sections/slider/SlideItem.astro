@@ -1,0 +1,19 @@
+---
+export interface Props {
+    href: string;
+}
+const { href } = Astro.props;
+---
+<div class="slide">
+    <div class="logos" style=`background: url(/images/${href}) no-repeat center;background-size: contain;`></div>
+</div>
+<style>
+    .slide {
+        padding: 20px;
+    }
+    .logos {
+        width: 250px;
+        height: 100px;
+        background-size: contain;
+    }
+</style>

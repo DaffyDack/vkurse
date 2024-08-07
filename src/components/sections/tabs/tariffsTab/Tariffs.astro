@@ -1,0 +1,217 @@
+---
+import Title from "./Title.astro";
+import ForMeetings from "./ForMeetings.astro";
+import Container from "../../../shared/Container.astro";
+import AdditionalModules from "../AdditionalModules.astro";
+import Systems from "./Systems.astro";
+// import { columns, rows } from "./tariffs.json";
+
+const { response } = Astro.props;
+---
+
+<section class="wrapper_tarifs">
+    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+        <div>
+            <div class="text-left mx-auto">
+                <h1>Тарифы</h1>
+            </div>
+            <div class="container">
+                <div class="tab">
+                    {
+                        response.columns.map((item) => {
+                            return (
+                                <>
+                                    <input
+                                        id={`${item.id}`}
+                                        name="tab-btn"
+                                        type="radio"
+                                        value=""
+                                    />
+
+                                    <label class="click" for={`${item.id}`}>
+                                        {item.label}
+                                    </label>
+                                </>
+                            );
+                        })
+                    }
+                    {
+                        response.rows.map((item) => {
+                            return (
+                                <div class="tab-content" id={`${item.id}`}>
+                                    <ForMeetings
+                                        id={item.id}
+                                        tariff={item.tariff}
+                                    />
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+        </div>
+        <AdditionalModules />
+        <Systems />
+    </Container>
+</section>
+<script>
+    let btn = document.querySelector(".tab");
+    let r = document.querySelector(".tab").querySelector('input[type="radio"]');
+    r.setAttribute("checked", "checked");
+
+    let d = document.querySelectorAll(
+        '.inner_button input[type="radio"]:first-child',
+    );
+    d.forEach((item, i) => {
+        item.setAttribute("checked", "checked");
+        item.classList.add("foo");
+    });
+</script>
+<style lang="scss">
+    h1 {
+        font-size: 44px;
+        color: #1c2129;
+        text-align: center;
+        padding: 20px;
+    }
+    .container {
+    }
+
+    .tab {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .tab > input[type="radio"] {
+        display: none;
+    }
+
+    .tab-content {
+        display: none;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    #GroupTariff-1:checked ~ #Content-1,
+    #GroupTariff-2:checked ~ #Content-2,
+    #GroupTariff-3:checked ~ #Content-3,
+    #GroupTariff-4:checked ~ #Content-4,
+    #GroupTariff-5:checked ~ #Content-5,
+    #GroupTariff-6:checked ~ #Content-6 {
+        display: block;
+    }
+
+    .tab > label {
+        @for $i from 1 through 5 {
+            &:nth-child(#{$i}n) {
+                background: url(/images/tab/Tab#{$i}.png)
+                    no-repeat
+                    left
+                    10px
+                    bottom
+                    #fff;
+                background-size: contain;
+            }
+        }
+        width: 223px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid transparent;
+        color: #53627a;
+        border-radius: 16px;
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 84px;
+        font-size: 14px;
+    }
+
+    .tab > input[type="radio"]:checked + label {
+        @for $i from 1 through 5 {
+            &:nth-child(#{$i}) {
+                background: url(/images/tab/Tab#{$i}.png)
+                    no-repeat
+                    left
+                    10px
+                    bottom
+                    #ebfffb;
+                background-size: contain;
+            }
+        }
+        width: 223px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #009373;
+        color: #53627a;
+        border-radius: 16px;
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 84px;
+        font-size: 14px;
+    }
+
+    .wrapper_tarifs {
+        background: #f3f6fa;
+        padding: 120px 0 120px 0;
+    }
+    a[data-te-nav-active] {
+        border-radius: 16px;
+        border: 2px solid #009373;
+        color: #1c2129;
+    }
+    a[data-te-nav-active]:hover {
+        background: #ebfffb;
+    }
+    a {
+        border: 2px solid transparent;
+        text-transform: none;
+        height: 100%;
+        font-size: 18px;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
+        background: #fff;
+        border-radius: 16px;
+        color: #53627a;
+        align-items: flex-start;
+        padding: 0;
+        padding-left: 100px;
+    }
+    a:hover {
+        background: #fff;
+    }
+
+    ul {
+        border-radius: 16px;
+        min-height: 120px;
+    }
+    li {
+        margin-right: 24px;
+    }
+
+    @media (min-width: 1900px) {
+        .wrapper_tarifs {
+            background: #f3f6fa;
+            padding: 82px 0 120px 0;
+            h1 {
+                text-align: left;
+                padding: 0px;
+                font-size: 48px;
+                letter-spacing: 1.6px;
+                margin-bottom: 58px;
+            }
+        }
+
+        .tab > label, .tab > input[type="radio"]:checked + label {
+            width: 266px;
+            height: 121px;
+            font-size: 18px;
+            padding-left: 110px;
+        }
+    }
+</style>

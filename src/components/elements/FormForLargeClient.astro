@@ -1,0 +1,448 @@
+---
+import PpdModal from "../../components/modals/PpdModal.astro";
+
+const pathname = new URL(Astro.request.url).pathname;
+let path = pathname.replace(/\//g, "");
+const PUBLIC_API_URL = import.meta.env.PUBLIC_API_URL;
+---
+
+<div id="contacts" class="wrapper_large_client">
+    <div class="title text-white mb-10">
+        Проведите время с коллегами уже сегодня!
+    </div>
+    <div
+        class="info_message_error pointer-events-auto mx-auto mb-4 hidden w-96 max-w-full rounded-lg bg-danger-100 bg-clip-padding text-sm text-danger-700 shadow-lg shadow-black/5 data-[te-toast-show]:block data-[te-toast-hide]:hidden"
+        id="static-example"
+        role="alert"
+        aria-atomic="true"
+        data-te-toast-init
+    >
+        <div
+            class="flex items-center justify-between rounded-t-lg border-b-2 border-danger-200 bg-danger-100 bg-clip-padding px-4 pb-2 pt-2.5 text-danger-700"
+        >
+            <p class="flex items-center font-bold text-danger-700"></p>
+            <div class="flex items-center">
+                <p class="text-xs text-danger-700"></p>
+                <button
+                    type="button"
+                    class="ml-2 box-content rounded-none border-none opacity-80"
+                    data-te-toast-dismiss
+                    aria-label="Close"
+                >
+                    <span class="w-[1em]">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="h-6 w-6"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div
+            class="break-words rounded-b-lg bg-danger-100 px-4 py-4 text-danger-700"
+        >
+            что то пошло не так
+        </div>
+    </div>
+    <div
+        class="info_message_success pointer-events-auto mx-auto mb-4 hidden w-96 max-w-full rounded-lg bg-success-100 bg-clip-padding text-sm text-success-700 shadow-lg shadow-black/5 data-[te-toast-show]:block data-[te-toast-hide]:hidden"
+        id="static-example"
+        role="alert"
+        aria-atomic="true"
+        data-te-toast-init
+    >
+        <div
+            class="flex items-center justify-between rounded-t-lg border-b-2 border-success/20 bg-success-100 bg-clip-padding px-4 pb-2 pt-2.5"
+        >
+            <p class="flex items-center font-bold text-success-700"></p>
+            <div class="flex items-center">
+                <button
+                    type="button"
+                    class="ml-2 box-content rounded-none border-none opacity-80"
+                    data-te-toast-dismiss
+                    aria-label="Close"
+                >
+                    <span class="w-[1em]">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="h-6 w-6"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div
+            class="break-words rounded-b-lg bg-success-100 px-4 py-4 text-success-700"
+        >
+            Заявка отправлена
+        </div>
+    </div>
+    <div class="form">
+        <div class="formLoader">
+            <div class="loader">
+                <svg
+                    class="spinner"
+                    width="65px"
+                    height="65px"
+                    viewBox="0 0 66 66"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        class="path"
+                        fill="none"
+                        stroke-width="6"
+                        stroke-linecap="round"
+                        cx="33"
+                        cy="33"
+                        r="30"></circle>
+                </svg>
+            </div>
+        </div>
+        <div class="container">
+            <form id="form_main_large_client" action="#" novalidate>
+                <div class="wrapper_inputs">
+                    <div class="field name-field">
+                        <div class="input-field inputBox">
+                            <input type="text" class="name_large" pattern="" />
+                            <span>ФИО</span>
+                        </div>
+                    </div>
+                    <div class="field email-field_large_client">
+                        <div class="input-field inputBox">
+                            <input
+                                type="email"
+                                class="email_main_large"
+                                pattern=""
+                            />
+                            <span>Email</span>
+                        </div>
+                        <span class="error email-error">
+                            <i class="bx bx-error-circle error-icon"></i>
+                            <p class="error-text">Введите корректный Email</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="field company-field">
+                        <div class="input-field inputBox">
+                            <input
+                                type="text"
+                                name=""
+                                class="company"
+                                pattern=""
+                            />
+                            <span>Компания</span>
+                        </div>
+                        <span class="error company-error">
+                            <i class="bx bx-error-circle error-icon"></i>
+                            <p class="error-text">Введите имя компании</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="field create-password">
+                    <div class="field button-field input-field">
+                        <input type="submit" value="Заказать презентацию" />
+                    </div>
+                    <div class="offer">
+                        Нажимая на кнопку "Заказать презентацию" Вы подтверждаете
+                        своё согласие с <span><a data-te-toggle="modal" data-te-target="#PpdModal" href="#PpdModal">политикой обработки персональных данных</a></span>
+                        <PpdModal />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script define:vars={{ PUBLIC_API_URL }}>
+//if (path.indexOf("forLargeCorporateClients") !== -1) {
+    const form_main = document.querySelector(".wrapper_large_client"),
+        emailField = form_main.querySelector(".email-field_large_client"),
+        emailInput = emailField.querySelector(".email_main_large"),
+        name_form = form_main.querySelector(".name_large"),
+        company = form_main.querySelector(".company"),
+        infoSuccess = form_main.querySelector(".info_message_success"),
+        infoError = form_main.querySelector(".info_message_error"),
+        loader = form_main.querySelector(".formLoader");
+    function checkEmail() {
+        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (!emailInput.value.match(emailPattern)) {
+            emailField.classList.add("invalid");
+            return false;
+        } else {
+            emailField.classList.remove("invalid");
+            return true;
+        }
+    }
+    form_main.addEventListener("submit", (e) => {
+        e.preventDefault();
+        checkEmail();
+        emailInput.addEventListener("keyup", checkEmail);
+        if (checkEmail()) {
+            loader.classList.add("visible");
+
+            fetch(PUBLIC_API_URL + "v1/form/5", {
+                method: "POST",
+                body: JSON.stringify({
+                    email: emailInput.value,
+                    name: name_form.value,
+                    company: company.value,
+                    url: window.location.href,
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                },
+            })
+                .then((response) => response.json())
+                .then((json) => {
+                    loader.classList.remove("visible");
+                    emailInput.value = "";
+                    name_form.value = "";
+                    company.value = "";
+                    infoSuccess.classList.remove("animate-[fade-out_0.3s_both]");
+                    infoSuccess.removeAttribute("data-te-toast-hide");
+                    infoSuccess.setAttribute("data-te-toast-show", true);
+                })
+                .catch((error) => {
+                    loader.classList.remove("visible");
+                    infoError.classList.remove("animate-[fade-out_0.3s_both]");
+                    infoError.removeAttribute("data-te-toast-hide");
+                    infoError.setAttribute("data-te-toast-show", true);
+                    console.log("что то пошло не так", error);
+                });
+        } else {
+            console.log("не отправляем");
+        }
+    });
+//}
+</script>
+<style lang="scss">
+    $overall_color: #53627a;
+    $color_1: #333;
+    $color_2: #919191;
+    $color_3: #d93025;
+    $color_4: #fff;
+    $font-family_1: "Poppins", sans-serif;
+    $background-color_1: #009373;
+    $background-color_3: #00765c;
+
+    $font-family_2: "Montserrat", sans-serif;
+
+    .title {
+        font-size: 24px;
+        font-family: $font-family_2;
+    }
+
+    *::-webkit-input-placeholder {
+        color: $overall_color;
+    }
+    *:-moz-placeholder {
+        color: $overall_color;
+        opacity: 1;
+    }
+    *::-moz-placeholder {
+        color: $overall_color;
+        opacity: 1;
+    }
+    *:-ms-input-placeholder {
+        color: $overall_color;
+    }
+    *::-ms-input-placeholder {
+        color: $overall_color;
+    }
+    *::placeholder {
+        color: $overall_color;
+    }
+
+    .form {
+        position: relative;
+        .formLoader {
+            display: none;
+            &.visible {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: 999;
+                background: rgba(0, 0, 0, 0.3);
+                border-radius: 6px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    .container {
+        position: relative;
+        width: 100%;
+        border-radius: 8px;
+        max-width: 100%;
+        h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: $color_1;
+        }
+        form {
+            margin-top: 30px;
+        }
+    }
+    form {
+        .field {
+            margin-bottom: 20px;
+            flex-grow: 1;
+            .offer {
+                color: #d0daeb;
+                font-weight: 400;
+                span {
+                    color: #0093f5;
+                }
+            }
+        }
+        .input-field {
+            position: relative;
+            width: 100%;
+            height: 55px;
+        }
+        .wrapper_inputs {
+            display: flex;
+            .field {
+                &:first-child {
+                    margin-right: 0.5rem;
+                }
+                &:last-child {
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+    }
+    .input-field {
+        input {
+            width: 100%;
+            height: 100%;
+            padding: 0 15px;
+            border: 2px solid $overall_color;
+            border-radius: 8px;
+            outline: none;
+            background: none;
+            color: $overall_color;
+        }
+        .password-hide {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: $color_2;
+            padding: 3px;
+            cursor: pointer;
+        }
+    }
+    .invalid {
+        input {
+            border: 1px solid #d93025;
+        }
+        .error {
+            display: flex !important;
+        }
+    }
+    .field {
+        .error {
+            align-items: center;
+            margin-top: 6px;
+            font-size: 14px;
+            font-weight: 400;
+            color: $color_3;
+            display: none;
+        }
+    }
+    .error {
+        .error-icon {
+            font-size: 15px;
+            margin-right: 6px;
+        }
+    }
+    .create-password {
+        .error {
+            align-items: flex-start;
+        }
+        .error-icon {
+            margin-top: 4px;
+        }
+    }
+    .button-field {
+        margin: 25px 0 6px;
+        input {
+            border: none;
+            font-size: 16px;
+            font-weight: 400;
+            background-color: $background-color_1;
+            color: $color_4;
+            transition: all 0.3s;
+            cursor: pointer;
+            height: 44px;
+            &:hover {
+                background-color: $background-color_3;
+            }
+        }
+    }
+
+    .inputBox {
+        position: relative;
+    }
+    .inputBox span {
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        display: inline-block;
+        padding: 14px;
+        font-size: 16px;
+        color: $overall_color;
+        font-weight: 300;
+        transition: 0.5s;
+        pointer-events: none;
+    }
+    .inputBox input:focus ~ span,
+    .inputBox input:invalid ~ span {
+        font-size: 12px;
+        color: $overall_color;
+        transform: translateX(-10px) translateY(-32px);
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    @media (max-width: 600px) {
+        form {
+            .wrapper_inputs {
+                flex-direction: column;
+                .field {
+                    &:first-child {
+                        margin-right: 0;
+                    }
+                    &:last-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+</style>

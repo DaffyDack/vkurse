@@ -1,0 +1,108 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_four" class="mb-[65px]">
+    <Container
+        className="flex flex-col midmd:flex-row gap-10 lg:gap-12 mb-[104px]"
+    >
+        <div class="wrapper_tech">
+            <div class="block_left"></div>
+            <div class="block_right">
+                АО ВКУРСЕ — дочернее <br class="br-desktop" /> предприятие <br 
+                /> IVA TECHNOLOGIES, лидера <br class="br-desktop" /> рынка ВКС
+                России
+            </div>
+            <a href="http://iva-tech.ru" target="_blank"
+                ><button>Узнать больше</button></a
+            >
+        </div>
+    </Container>
+    <style lang="scss">
+        .wrapper_tech {
+            padding: 8px;
+            background: #F3F6FA;
+            border-radius: 24px;
+            padding: 0;
+        }
+        .wrapper_tech .block_left {
+            height: 208px;
+            width: 208px;
+            border-radius: 24px;
+            background: url(/images/logo_tech.png) no-repeat top 50% left 50%
+                #009373;
+            background-size: 128px;
+        }
+        .wrapper_tech .block_right {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            font-size: 28px;
+            line-height: 36px;
+            font-family: "Montserrat", sans-serif;
+            padding-left: 40px;
+        }
+        .wrapper_tech {
+            display: flex;
+            width: 100%;
+            align-items: center;
+        }
+        .wrapper_tech button {
+            width: 166px;
+            height: 44px;
+            border-radius: 12px;
+            border: 2px solid #009373;
+            background: url(/images/arrow_green.png) no-repeat top 50% right
+                20px ;
+            background-size: 16px;
+            color: #009373;
+            font-size: 14px;
+            text-align: left;
+            padding-left: 16px;
+            margin-right: 40px;
+        }
+        @media (max-width: 1022px) {
+            .wrapper_tech {
+                flex-direction: column;
+                .block_right {
+                    padding: 0;
+                }
+                .block_left {
+                    width: 80%;
+                }
+                div {
+                    margin-bottom: 30px;
+                }
+                button {
+                    margin: 0;
+                }
+            }
+        }
+        @media (max-width: 550px) {
+            .wrapper_tech {
+                .block_right {
+                    font-size: 20px;
+                }
+            }
+        }
+        @media (min-width: 1900px) {
+            #block_four {
+                margin-top: 200px;
+                .block_right {
+                    letter-spacing: 2.49px;
+                    line-height: 37px;
+                }
+                button {
+                    background: url(/images/arrow_green.png) no-repeat top
+                        50% right 15px #fff;
+                    background-size: 16px;
+                    padding-left: 14px;
+                }
+            }
+            .br-desktop {
+                display: none;
+            }
+        }
+    </style>
+</section>

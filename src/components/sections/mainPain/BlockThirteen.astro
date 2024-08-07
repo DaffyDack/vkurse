@@ -1,0 +1,147 @@
+---
+import Container from "../../shared/Container.astro";
+---
+
+<section id="block_thirteen">
+  <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+    <div class="wrapper_thow_to_get_started">
+      <div class="heading">Как начать работу <br /> с ВКУРСЕ?</div>
+      <div class="wrapper_roboto" id="wrapper_roboto">
+        <div>
+          <ul>
+            <li>
+              <div class="title">Пробуете онлайн-сервис ВКУРСЕ</div>
+              <div class="description">
+                Возможность самостоятельного тестирования, а также демонстрации
+                сервиса нашими менеджерами
+              </div>
+            </li>
+            <li>
+              <div class="title">Проведите «боевое» онлайн-мероприятие</div>
+              <div class="description">
+                Проведите полномасштабное мероприятие для своих сотрудников,
+                клиентов или партнеров
+              </div>
+            </li>
+            <li>
+              <div class="title">Подписываем договор</div>
+              <div class="description">
+                Есть возможность подписания документов с помощью
+                ЭДОКонтур.Диадок
+              </div>
+            </li>
+            <li>
+              <div class="title">Получаете полный доступ к ВКУРСЕ</div>
+              <div class="description">
+                Реквизиты доступа в аккаунт отправляются на email <br /><br
+                /><br /> Вход через страницу
+              </div>
+              <span><a href="https://saas.vkurse.ru">saas.vkurse.ru</a></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+<style lang="scss">
+  $color_1: #0093f5;
+  $font-family_1: "Montserrat", sans-serif;
+  @media (min-width: 1900px) {
+    #wrapper_roboto > div {
+      width: 100% !important;
+    }
+  }
+  @media (max-width: 480px) {
+    #wrapper_roboto > div {
+      width: 1000px !important;
+    }
+  }
+  #wrapper_roboto {
+    // &::-webkit-scrollbar {
+    //     display: none;
+    // }э
+    width: 100%;
+    > div {
+      //   width: 1040px;
+    }
+  }
+
+  .heading {
+    font-size: 36px;
+    font-family: $font-family_1;
+    text-align: left;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+  .wrapper_thow_to_get_started {
+    width: 100%;
+    margin-bottom: 50px;
+    .wrapper_roboto {
+      overflow-y: overlay;
+    }
+  }
+  ul {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .title {
+    font-family: $font-family_1;
+    font-size: 16px;
+    text-align: left;
+    padding-bottom: 16px;
+  }
+  li {
+    min-height: 528px;
+    width: 245px;
+    padding: 323px 10px 10px 10px;
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        background: url(/images/Robot#{$i}.png) no-repeat left bottom 240px;
+        background-size: contain;
+      }
+    }
+    .description {
+      font-weight: 400;
+    }
+  }
+  span {
+    color: $color_1;
+  }
+
+  @media (min-width: 1900px) {
+    #block_thirteen {
+      margin-bottom: 177px;
+      .heading {
+        font-size: 48px;
+        line-height: 53px;
+        padding: 0;
+        margin-bottom: 73px;
+      }
+      ul {
+        li {
+          width: 335px;
+          padding: 446px 3px 10px 0px;
+          @for $i from 1 through 4 {
+            &:nth-child(#{$i}) {
+              background: url(/images/Robot#{$i}.png)
+                no-repeat
+                left
+                bottom
+                260px;
+              background-size: contain;
+            }
+          }
+          .title {
+            font-size: 22px;
+            padding-bottom: 23px;
+          }
+          .description {
+            letter-spacing: 0.2px;
+          }
+        }
+      }
+    }
+  }
+</style>

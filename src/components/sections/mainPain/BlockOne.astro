@@ -1,0 +1,288 @@
+---
+import Container from "../../shared/Container.astro";
+import DemonstrationModal from "../../../components/modals/DemonstrationModal.astro";
+
+const WORDS = [
+  "совещаний",
+  "воркшопов",
+  "встреч",
+  "вебинаров",
+  "обучений",
+  "селекторов",
+  "семинаров",
+  "конференций",
+  "заседаний",
+  "лекций",
+  "симпозиумов",
+  "онлайн-уроков",
+];
+let selectWord = getRotatingWord();
+
+// let tilteHighlighted = document.getElementById("tilteHighlighted");
+
+function getRotatingWord() {
+  let currentWordIndex = 0;
+
+  function rotateWords() {
+    const currentWord = WORDS[currentWordIndex];
+    currentWordIndex = (currentWordIndex + 1) % WORDS.length;
+
+    return currentWord;
+  }
+
+  setInterval(rotateWords, 2000);
+
+  return rotateWords;
+}
+---
+
+<section id="block_one">
+  <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+    <div class="wrapper">
+      <div class="bock_left">
+        <div class="title">
+          Онлайн-платформа<br class="none" />
+           c мессенджером<br class="none" />
+           для проведения
+        </div>
+        <div id="tilteHighlighted" class="tilteHighlighted">совещаний</div>
+        <div class="discription">
+          Подключись к платформе сегодня и используй наши решения для
+          эффективности своего бизнеса
+        </div>
+        <button data-te-toggle="modal" data-te-target="#exampleModal">
+          Заказать демонстрацию
+          <img src="/images/Arrow.png" />
+        </button>
+      </div>
+      <div class="present">
+        <img src="/images/IllustrationClear.png" class="clear" />
+        <img src="/images/Illustration.png" class="video" />
+        <div class="cams">
+          <img src="/images/alice.gif" />
+          <img src="/images/katya.gif" />
+          <img src="/images/victor.gif" />
+          <img src="/images/sasha.gif" />
+        </div>
+      </div>
+    </div>
+  </Container>
+  <DemonstrationModal />
+</section>
+
+<script>
+  let tilteHighlighted = document.getElementById("tilteHighlighted");
+
+  const WORDS = [
+    { text: "совещаний", color: "#FCC" },
+    { text: "воркшопов", color: "#CCFCFF" },
+    { text: "встреч", color: "#DFCCFF" },
+    { text: "вебинаров", color: "#FFDECC" },
+    { text: "обучений", color: "#DCFFCC" },
+    { text: "селекторов", color: "#F9F9B8" },
+    { text: "семинаров", color: "#CCF0FF" },
+    { text: "конференций", color: "#FEC" },
+    { text: "заседаний", color: "#EFCCFF" },
+    { text: "лекций", color: "#CCFFED" },
+    { text: "симпозиумов", color: "#FFCCF5" },
+    { text: "онлайн-уроков", color: "#CCE0FF" },
+  ];
+  let selectWord = getRotatingWord();
+
+  // let tilteHighlighted = document.getElementById("tilteHighlighted");
+
+  function getRotatingWord() {
+    let currentWordIndex = 0;
+
+    function rotateWords() {
+      const currentWord = WORDS[currentWordIndex];
+      currentWordIndex = (currentWordIndex + 1) % WORDS.length;
+      tilteHighlighted.innerHTML = WORDS[currentWordIndex].text;
+      tilteHighlighted.style.background = WORDS[currentWordIndex].color;
+      return currentWord;
+    }
+
+    setInterval(rotateWords, 2000);
+
+    return rotateWords;
+  }
+</script>
+<h1 class="hidden-h1">
+  Онлайн-платформа c мессенджером для проведения совещаний
+</h1>
+
+<style lang="scss">
+  .clear {
+    display: none;
+  }
+
+  .hidden-h1 {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+  }
+
+  .present {
+    display: none;
+  }
+
+  .wrapper {
+    width: 100%;
+    background: url(/images/Illustration.png) no-repeat top 16px right 0;
+    background-size: 544px;
+    padding: 16px 0;
+  }
+
+  .bock_left {
+    width: 440px;
+    min-height: 432px;
+  }
+  .title {
+    font-size: 36px;
+    font-family: "Montserrat", sans-serif;
+    line-height: 40px;
+    font-weight: 600;
+  }
+  .tilteHighlighted {
+    font-size: 33px;
+    font-family: "Montserrat", sans-serif;
+    background: #ffcccc;
+    border-radius: 12px;
+    padding: 4px 16px;
+    margin-top: 12px;
+    margin-bottom: 40px;
+    display: inline-block;
+    font-weight: 600;
+    transition: all 1s ease;
+  }
+  .discription {
+    font-size: 18px;
+    color: #1c2129;
+    font-weight: 400;
+  }
+  button {
+    width: 275px;
+    height: 56px;
+    background-size: 15px;
+    background: #009373;
+    color: #fff;
+    border-radius: 16px;
+    text-align: left;
+    padding-left: 20px;
+    margin-top: 40px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background-color 0.5s ease;
+
+    img {
+      width: 20px;
+    }
+
+    &:hover {
+      background: #00765c;
+      background-size: 15px;
+    }
+  }
+  @media (min-width: 1900px) {
+    .wrapper_advantage {
+        padding-top: 337px;
+        ul {
+          justify-content: space-between;
+          &.li1 {
+            flex-basis: calc(41.5% - 16px);
+          }
+        }
+      }
+   
+    .video {
+      display: none;
+    }
+    .clear {
+      display: block !important;
+    }
+
+    .discription {
+      // width: 600px;
+      letter-spacing: 0.2px;
+    }
+    .bock_left {
+      width: 630px;
+      padding: 9px 0px 0px 0px;
+      .tilteHighlighted {
+        padding: 0 16px;
+        font-size: 44px;
+        margin-bottom: 44px;
+      }
+      button {
+        letter-spacing: 0.4px;
+        img {
+          width: 16px;
+          margin-left: 5px;
+        }
+      }
+    }
+
+    .title {
+      font-size: 48px;
+      line-height: 60px;
+    }
+
+    .wrapper {
+      display: flex;
+      background: transparent !important;
+      justify-content: space-between;
+      padding: 56px 0 16px;
+    }
+
+    .present {
+      padding: 9px 0 0 0px;
+      display: block !important;
+      width: 720px;
+
+      img {
+        height: 560px;
+        width: 720px;
+
+      }
+
+      .cams {
+        display: grid;
+        grid-template-columns: repeat(2, 200px);
+        grid-gap: 8px;
+        position: absolute;
+        z-index: 3;
+        top: 239px;
+        margin-left: 30px;
+
+        img {
+          width: 200px;
+          height: 164px;
+        }
+      }
+    }
+  }
+  @media (max-width: 1022px) {
+    .wrapper {
+      background: url(/images/Illustration.png) no-repeat top center;
+      background-size: 58vw;
+      padding-top: 50vw;
+      br {
+        display: none;
+      }
+    }
+    .bock_left {
+      width: 100%;
+      min-height: 432px;
+    }
+  }
+  @media (max-width: 550px) {
+    .bock_left {
+      .title,
+      .tilteHighlighted {
+        font-size: 24px;
+      }
+    }
+  }
+</style>

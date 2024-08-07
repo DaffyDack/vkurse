@@ -1,0 +1,97 @@
+---
+import Slide from "./SlideItem.astro";
+const products = [
+  "Logo=01.png",
+  "Logo=02.png",
+  "Logo=03.png",
+  "Logo=04.png",
+  "Logo=05.png",
+  "Logo=06.png",
+  "Logo=07.png",
+  "Logo=08.png",
+  "Logo=09.png",
+  "Logo=11.png",
+  "Logo=12.png",
+  "Logo=13.png",
+  "Logo=14.png",
+  "Logo=15.png",
+  "Logo=16.png",
+  "Logo=17.png",
+  "Logo=18.png",
+  "Logo=19.png"
+];
+---
+
+<div class="">
+  <div class="slider">
+    <div class="slide-track">
+      {
+        products.map((prod) => {
+          return <Slide href={prod} />;
+        })
+      }
+    </div>
+  </div>
+</div>
+<style lang="scss">
+  @mixin white-gradient {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+  $animationSpeed: 40s;
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 7));
+    }
+  }
+
+  @media (min-width: 1250) {
+    .slider {
+      width: 100% !important;
+    }
+  }
+  .slider {
+    background: white;
+    overflow: hidden;
+    position: relative;
+
+    &::before,
+    &::after {
+      @include white-gradient;
+      content: "";
+      height: 100%;
+      position: absolute;
+      width: 200px;
+      z-index: 2;
+    }
+
+    &::after {
+      right: 0;
+      top: 0;
+      transform: rotateZ(180deg);
+    }
+
+    &::before {
+      left: 0;
+      top: 0;
+    }
+
+    .slide-track {
+      animation: scroll $animationSpeed linear infinite;
+      display: flex;
+      width: calc(250px * 14);
+    }
+
+    .slide {
+      height: 100px;
+      width: 250px;
+      margin-left: 50px;
+    }
+  }
+</style>
